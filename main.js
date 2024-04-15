@@ -9,7 +9,7 @@ function slide_change(p1, p2) {
   let wallpaper = document.getElementsByClassName("background")[0]
 
 
-  for (let i=1;i<availablePages+1;i++){
+  for (let i=1;i<=availablePages;i++){
     if (i==p2){
       wallpaper.style.backgroundImage = `url('images/back${i}.jpg')`;
     }
@@ -18,19 +18,12 @@ function slide_change(p1, p2) {
 
   let page1 = document.getElementById("page" + p1)
   page1.style.opacity = 0
+  page1.style.display = "none"
 
-  setTimeout(function() {
-    page1.style.display = "none"
-  }, 150)
   
   let page2 = document.getElementById("page" + p2)
   page2.style.display = "block"
-  setTimeout(function() {
-    page2.style.opacity = 1
-    }, 150);
-
-
-
+  page2.style.opacity = 1
 
 }
 
@@ -48,6 +41,8 @@ menu.addEventListener("click", function() {
   }
 })
 
+
+// Table oc contents
 
 let page1 = document.getElementById("home")
 page1.addEventListener("click", function() {slide_change(2, 1);  pageNumber = 1})
