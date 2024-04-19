@@ -3,8 +3,9 @@
 let pageNumber = 1
 
 let availablePages = 6
+
+//Wallpaper change
 function slide_change(p1, p2) {
-  //Wallpaper change
 
   let wallpaper = document.getElementsByClassName("background")[0]
 
@@ -114,4 +115,3 @@ document.onkeyup = function(e) {
     }
   }
 };
-
