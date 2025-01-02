@@ -1,0 +1,591 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: none;
+    user-select: none;
+}
+
+
+html body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    
+}
+
+section{
+    position: relative;
+    width: 100%;
+}
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.4;
+    transition: 0.5s ease;
+}
+
+
+.content{
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+}
+
+
+#page1{
+    position: relative;
+    height: 100vh;
+    text-align: center;
+}
+
+#picture{
+    width: 225px;
+    border-radius: 100%;
+    transition: 0.7s ease;
+    margin-top: 50px;
+
+}
+
+#picture:hover{
+    box-shadow: 2px 2px white;
+
+}
+
+
+#name{
+    margin-top: 25px;
+    transition: 0.7s;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    margin-bottom: 70px;
+
+}
+
+#name:hover{
+    text-shadow: 2px 2px black;
+}
+
+
+
+@keyframes fromRight {
+    0%{
+        padding-left: 100px;
+    }
+}
+
+@keyframes fromLeft {
+    0%{
+        padding-right: 100px;
+    }
+}
+#page2{
+    display: none;
+    opacity: 0;
+}
+
+
+#home{
+    animation: fromRight 0.7s;
+}
+
+#about{
+    animation: fromLeft 0.7s;
+}
+#education{
+    animation: fromRight 0.7s;
+}
+#skills{
+    animation: fromLeft 0.7s;
+}
+#contact{
+    animation: fromRight 0.7s;
+
+}
+
+ul{
+    text-align: center;
+    list-style: none;
+    margin-bottom: 70px;
+}
+
+
+li{
+    color: white;
+    font-size: 35px;
+    padding-top: 35px;
+    font-family: 'Bitter', serif;
+    cursor: pointer;
+    width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+
+.list-devider{
+    width: 0;
+    height: 2px;
+    background-color: white;
+    margin: auto;
+    transition: 0.4s ease-in-out;
+    border-radius: 50px;
+    margin-top: 2px;
+}
+
+
+li:hover + .list-devider{
+    width: 100px;
+}
+
+
+.title{
+    margin: auto;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.title h1{
+    font-size: 60px;
+    color: white;
+    transition: 0.7s;
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+
+.devider{
+    width: 300px;
+    height: 2.5px;
+    background-color: white;
+    border-radius: 100%;
+    margin: auto;
+}
+
+
+@keyframes about {
+    0%{
+        opacity: 0;
+        margin-top: 100px;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+
+.text{
+    color: white;
+    font-size: 20px;
+    font-family: 'Bitter', serif;
+    line-height: 2;
+    height: 400px;
+}
+
+
+#page3{
+    opacity: 0;
+    display: none;
+    text-align: center;
+    height: 100vh;
+
+}
+
+.text_container{
+    margin: auto;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 35px;
+    animation: about 1s;
+    width: 80%;
+}
+
+
+
+.movement li{
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 0.5s;
+
+}
+
+
+#back{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+#control{
+    margin: auto;
+    width: 500px;
+    left: 0%;
+    right: 0%;
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    column-gap: 2px;
+    z-index: 5;
+}
+#next{
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+
+#menu{
+    z-index: 2;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+
+#page4{
+    position: relative;
+    display: none;
+}
+
+
+@keyframes university_text {
+    0%{
+        font-size: 30px;
+    
+    }
+
+}
+
+.education_text{
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    text-shadow: 2px 2px black;
+    font-size: 38px;
+    text-rendering: geometricPrecision;
+    font-family: 'Libre Baskerville', serif;
+    animation: university_text 0.7s;
+}
+
+
+@keyframes university {
+    0%{
+        opacity: 0;
+    
+    }
+
+}
+
+
+
+#university{
+    margin-top: 20px;
+    color: red;
+    text-shadow: 2px 2px black;
+    transition: 0.7s;
+    animation: university 0.7s;
+}
+
+
+#university:hover{
+    color: white;
+    text-shadow: 2px 2px black;
+
+}
+
+#york_pic{
+    margin-top: 45px;
+    text-align: center;
+}
+#york_pic img{
+    width: 150px;
+    animation: university 0.7s;
+    border-radius: 5px;
+}
+
+
+#skills_list{
+    list-style: none;
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    gap: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.skill_elemnt{
+    margin: auto;
+    text-align: center;
+}
+
+
+@keyframes skills {
+    0%{
+        height: 0;
+    }
+}
+
+
+.skill_elemnt img{
+    height: 75px;
+    margin-top: 50px;
+    border-radius: 100%;
+    animation: skills 0.5s;
+    background-color: white;
+}
+
+.skill_elemnt h1{
+    height: 120px;
+    color: white;
+    font-size: 25px;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 3px 3px black;
+}
+
+.vertical_line{
+    width: 2px;
+    height: 100px;
+    background-color: white;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 100px;
+}
+
+
+#page5{
+    opacity: 0;
+    display: none;
+    width: 100%;
+}
+
+
+
+#page6{
+    opacity: 0;
+    display: none;
+    height: 100vh;
+    width: 100%;
+}
+
+
+@keyframes contact_animation {
+    0%{
+        margin-top: 10px;
+    }
+}
+
+
+#contact_list{
+    margin-top: 50px;
+    text-align: center;
+    display: flex;
+    width: 100%;
+    animation: contact_animation 1.5s;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#contact_list div{
+    color: black;
+    margin-top: 50px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    transition: 0.5s;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+#contact_list div:hover{
+    margin-top: 40px;    
+}
+
+
+#contact_list div img{
+    width: 85px;
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+#contact_list div a{
+    margin-top: 20px;
+    font-family: 'Libre Baskerville', serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: 2px 2px black;
+    font-size: 18px;
+}
+
+
+#contact_list div a:visited{
+    color: white;
+    
+}
+
+
+/*
+
+Mobile view
+
+*/
+
+
+@media screen and (max-height: 600px){
+    #page1{
+        position: relative;
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+    }
+    
+    #page2{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+}
+    #page3{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+    }
+    #page4{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+}    
+    #page5{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+}
+    #page6{
+        overflow: scroll;
+}
+}
+
+
+@media screen and (max-width: 840px){
+
+    #picture{
+        width: 180px;
+        border-radius: 100%;
+    }
+    #name{
+        margin-top: 25px;
+        font-size: 40px;
+    
+    }
+    #control{
+        margin: auto;
+        width: 250px;
+    }
+    .text{
+        font-size: 15px;
+    }
+    #skills_list{
+        list-style: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        margin-bottom: 60px;
+        row-gap: 0px;
+
+    }
+    .vertical_line{
+        height: 50px;
+    }
+
+    #contact_list{
+        display: inline-block;
+        grid-template-columns: 1fr;
+        animation: contact_animation 0.7s;
+
+    }
+    #contact_list div:hover{
+        margin-bottom: 2px;    
+    }
+
+    .title{
+        margin: auto;
+        text-align: center;
+        padding-top: 50px;
+    }
+    
+    .title h1{
+        font-size: 40px;
+        color: white;
+        transition: 0.7s;
+        font-family: 'Playfair Display', serif;
+        text-align: center;
+        text-shadow: 2px 2px black;
+        margin-bottom: 15px;
+    }
+    
+    .devider{
+        width: 250px;
+        height: 2.5px;
+        background-color: white;
+        border-radius: 100%;
+        margin: auto;
+    }
+    
+    li{
+        font-size: 30px;
+    }
+
+
+    .education_text{
+        font-size: 25px;
+    }
+    #york_pic img{
+        width: 90px;
+    }
+    .skill_elemnt h1{
+        height: 80px;
+        font-size: 20px;
+    }
+    .skill_elemnt img{
+        height: 70px;
+        margin-top: 30px;
+        border-radius: 100%;
+    }
+    #contact_list{
+        margin-top: 25px;
+    }
+    #contact_list div img{
+        width: 75px;
+        margin-right: auto;
+        margin-left: auto;
+        
+    }
+    
+    #contact_list div a{
+        margin-top: 0px;
+        font-family: 'Libre Baskerville', serif;
+        color: white;
+        text-decoration: none;
+        text-shadow: 2px 2px black;
+        font-size: 20px;
+    }
+    
+}
