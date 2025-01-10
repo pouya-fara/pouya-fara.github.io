@@ -120,13 +120,11 @@ document.body.addEventListener("touchend", () => {
     } else if (currentX > startX+endTarget) {
       lastSlide();
     }
-
+    // Reset touch positions
+    startX = 0;
+    currentX = 0; 
   }
-  })
-
-// Reset touch positions
-startX = 0;
-currentX = 0;
+})
 
 
 
