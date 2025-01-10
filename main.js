@@ -100,36 +100,34 @@ back.addEventListener("click", function() {lastSlide()})
 
 // Scrolling
 
-const scrollableElements = document.querySelectorAll(".content");
 
-scrollableElements.forEach((element) => {
-  let startX = 0;
-  let currentX = 0;
+let startX = 0;
+let currentX = 0;
 
-  element.addEventListener("touchstart", (event) => {
-    startX = event.touches[0].clientX; // Record starting touch position
-  });
+document.body.addEventListener("touchstart", (event) => {
+  startX = event.touches[0].clientX; // Record starting touch position
+});
 
-  element.addEventListener("touchmove", (event) => {
-    currentX = event.touches[0].clientX; // Update current touch position
-  });
+document.body.addEventListener("touchmove", (event) => {
+  currentX = event.touches[0].clientX; // Update current touch position
+});
 
-  element.addEventListener("touchend", () => {
-    endTarget = screen.width / 15
-    if (currentX!=0){
-      if (currentX < startX-endTarget) {
-        nextSlide();
-      } else if (currentX > startX+endTarget) {
-        lastSlide();
-      }
-  
+document.body.addEventListener("touchend", () => {
+  endTarget = screen.width / 15
+  if (currentX!=0){
+    if (currentX < startX-endTarget) {
+      nextSlide();
+    } else if (currentX > startX+endTarget) {
+      lastSlide();
     }
 
-    // Reset touch positions
-    startX = 0;
-    currentX = 0;
-  });
-});
+  }
+  })
+
+// Reset touch positions
+startX = 0;
+currentX = 0;
+
 
 
 
