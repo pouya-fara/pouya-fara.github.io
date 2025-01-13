@@ -103,18 +103,23 @@ back.addEventListener("click", function() {lastSlide()})
 
 let startX = 0;
 let currentX = 0;
-
+let startY = 0;
+let currentY = 0;
 document.body.addEventListener("touchstart", (event) => {
-  startX = event.touches[0].clientX; // Record starting touch position
+  startX = event.touches[0].clientX;
+  startY = event.touches[0].clientY;
+
 });
 
 document.body.addEventListener("touchmove", (event) => {
-  currentX = event.touches[0].clientX; // Update current touch position
+  currentX = event.touches[0].clientX;
+  currentY = event.touches[0].clientY;
 });
 
 document.body.addEventListener("touchend", () => {
-  endTarget = screen.width / 15
-  if (currentX!=0){
+  endTarget = 50;
+  yFlexibility = 20;
+  if (currentX!=0 && Math.abs(currentY - startY)<yFlexibility){
     if (currentX < startX-endTarget) {
       nextSlide();
     } else if (currentX > startX+endTarget) {
@@ -123,6 +128,8 @@ document.body.addEventListener("touchend", () => {
     // Reset touch positions
     startX = 0;
     currentX = 0; 
+    currentY = 0;
+    startY = 0
   }
 })
 
