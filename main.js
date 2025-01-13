@@ -30,7 +30,6 @@ function slide_change(p1, p2) {
 
 
 
-
 let pic = document.getElementById("picture")
 pic.addEventListener("click", function() {slide_change(1, 2);pageNumber = 2})
 
@@ -118,7 +117,7 @@ document.body.addEventListener("touchmove", (event) => {
 
 document.body.addEventListener("touchend", () => {
   endTarget = 15;
-  yFlexibility = 20;
+  yFlexibility = 50;
   if (currentX!=0 && Math.abs(currentY - startY)<yFlexibility){
     if (currentX < startX-endTarget) {
       nextSlide();
