@@ -117,7 +117,7 @@ document.body.addEventListener("touchmove", (event) => {
 });
 
 document.body.addEventListener("touchend", () => {
-  endTarget = 50;
+  endTarget = 30;
   yFlexibility = 20;
   if (currentX!=0 && Math.abs(currentY - startY)<yFlexibility){
     if (currentX < startX-endTarget) {
