@@ -324,9 +324,10 @@ li:hover + .list-devider{
     width: 50%;
     gap: 50px;
     row-gap: 0;
-    margin-right: auto;
     text-align: center;
-    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 #skills_titles{
@@ -347,6 +348,8 @@ li:hover + .list-devider{
 
 .skill_element{
     text-align: center;
+    width: 150px;
+
 }
 
 
@@ -463,6 +466,9 @@ li:hover + .list-devider{
     display: flex;
     margin-right: 50px;
     margin-left: 50px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #horizontal_line{
@@ -473,8 +479,6 @@ li:hover + .list-devider{
     margin-bottom: auto;
     margin-top: auto;
     border-radius: 50%;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 
@@ -546,13 +550,8 @@ Mobile view
         grid-template-columns: 1fr 1fr;
         width: 80%;
 
-
     }
 
-    .skill_element{
-        margin-left: auto;
-        margin-right: auto;
-    }
     .vertical_line{
         height: 50px;
     }
@@ -605,6 +604,7 @@ Mobile view
     .skill_element h1{
         height: 80px;
         font-size: 20px;
+        text-align: center;
     }
     .skill_element img{
         height: 70px;
