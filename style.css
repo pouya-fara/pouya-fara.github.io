@@ -529,7 +529,9 @@ Mobile view
 
     #skills_list{
         height: 100vh;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
         display: block;
         width: 100%;
     }
