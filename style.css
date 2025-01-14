@@ -321,13 +321,13 @@ li:hover + .list-devider{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
     gap: 50px;
     row-gap: 0;
-    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     align-items: center;
-    
+    text-align: center;
 }
 
 #skills_titles{
@@ -462,13 +462,11 @@ li:hover + .list-devider{
 }
 
 #skills_list{
-    height: 100%;
     display: flex;
-    margin-right: 50px;
-    margin-left: 50px;
     text-align: center;
     justify-content: center;
     align-items: center;
+    height: 50vh;
 }
 
 #horizontal_line{
@@ -529,6 +527,13 @@ Mobile view
 
 @media screen and (max-width: 840px){
 
+    #skills_list{
+        height: 100vh;
+        overflow: scroll;
+        display: block;
+        width: 100%;
+    }
+
     #picture{
         width: 180px;
         border-radius: 100%;
@@ -545,15 +550,21 @@ Mobile view
     .text{
         font-size: 15px;
     }
-    .learned_skills{
-        list-style: none;
-        grid-template-columns: 1fr 1fr;
-        width: 80%;
-
-    }
 
     .vertical_line{
         height: 50px;
+    }
+
+    #horizontal_line{
+        height: 4px;
+        width: 500px;
+        background-color: white;
+        text-align: center;
+        margin-bottom: auto;
+        margin-top: auto;
+        border-radius: 50%;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     #contact_list{
@@ -610,6 +621,10 @@ Mobile view
         height: 70px;
         margin-top: 30px;
         border-radius: 100%;
+    }
+    .skill_element{
+        margin-left: auto;
+        margin-right: auto;
     }
     #contact_list{
         margin-top: 25px;
