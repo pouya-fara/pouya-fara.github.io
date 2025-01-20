@@ -37,6 +37,7 @@ section{
 .content{
     transition: 0.3s ease-in-out;
     z-index: 2;
+    height: 100vh;
 }
 
 
@@ -223,6 +224,13 @@ li:hover + .list-devider{
 #back{
     transition: 0.3s;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
 }
 
 
@@ -240,6 +248,13 @@ li:hover + .list-devider{
 #next{
     transition: 0.3s;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 55px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
 }
 
 
@@ -249,6 +264,13 @@ li:hover + .list-devider{
     margin: auto;
     cursor: pointer;
     transition: 0.5s;
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 35px;
+    height: 35px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
 }
 
 
@@ -317,7 +339,6 @@ li:hover + .list-devider{
 
 .learned_skills{
     margin-bottom: auto;
-    padding-bottom: 50px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -347,8 +368,11 @@ li:hover + .list-devider{
 }
 
 .skill_element{
+    scroll-snap-align: start;
     text-align: center;
-    width: 150px;
+    width: 180px;
+    margin-left: auto;
+    margin-right: auto;
 
 }
 
@@ -371,7 +395,7 @@ li:hover + .list-devider{
 .skill_element h1{
     margin-top: 20px;
     color: white;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Playfair Display', serif;
     text-shadow: 3px 3px black;
 }
@@ -466,11 +490,16 @@ li:hover + .list-devider{
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 50vh;
+    height: 500px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: white black; 
 }
 
 #horizontal_line{
-    height: 500px;
+    height: 100vh;
     width: 4px;
     background-color: white;
     text-align: center;
@@ -528,10 +557,8 @@ Mobile view
 @media screen and (max-width: 840px){
 
     #skills_list{
-        height: 100vh;
         overflow-y: scroll;
         overflow-x: hidden;
-
         display: block;
         width: 100%;
     }
@@ -558,8 +585,9 @@ Mobile view
     }
 
     #horizontal_line{
+        margin-top: 0;
         height: 4px;
-        width: 500px;
+        width: 70%;
         background-color: white;
         text-align: center;
         margin-bottom: auto;
