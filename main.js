@@ -1,113 +1,103 @@
+let pageNumber = 1; // Tracks the current page
+let availablePages = 6; // Total number of available pages
 
-
-let pageNumber = 1
-
-let availablePages = 6
-
-//Wallpaper change
+// Function to change wallpaper and transition between pages
 function slide_change(p1, p2) {
+  let wallpaper = document.getElementsByClassName("background")[0];
 
-  let wallpaper = document.getElementsByClassName("background")[0]
-
-
-  for (let i=1;i<=availablePages;i++){
-    if (i==p2){
+  // Change background image based on the target page
+  for (let i = 1; i <= availablePages; i++) {
+    if (i === p2) {
       wallpaper.style.backgroundImage = `url('images/back${i}.jpg')`;
     }
-    
   }
 
-  let page1 = document.getElementById("page" + p1)
-  page1.style.opacity = 0
-  page1.style.display = "none"
+  // Hide the current page
+  let page1 = document.getElementById("page" + p1);
+  page1.style.opacity = 0;
+  page1.style.display = "none";
 
-  
-  let page2 = document.getElementById("page" + p2)
-  page2.style.display = "block"
-  page2.style.opacity = 1
-
+  // Show the new page
+  let page2 = document.getElementById("page" + p2);
+  page2.style.display = "block";
+  page2.style.opacity = 1;
 }
 
+// Event listeners for navigation elements
+let pic = document.getElementById("picture");
+pic.addEventListener("click", function () {
+  slide_change(1, 2);
+  pageNumber = 2;
+});
 
-
-let pic = document.getElementById("picture")
-pic.addEventListener("click", function() {slide_change(1, 2);pageNumber = 2})
-
-let menu = document.getElementById("menu")
-menu.addEventListener("click", function() {
-  if (pageNumber !==2){
+let menu = document.getElementById("menu");
+menu.addEventListener("click", function () {
+  if (pageNumber !== 2) {
     slide_change(pageNumber, 2);
     pageNumber = 2;
   }
-})
+});
 
+// Table of contents navigation
+document.getElementById("home").addEventListener("click", function () {
+  slide_change(2, 1);
+  pageNumber = 1;
+});
 
-// Table oc contents
+document.getElementById("about").addEventListener("click", function () {
+  slide_change(2, 3);
+  pageNumber = 3;
+});
 
-let page1 = document.getElementById("home")
-page1.addEventListener("click", function() {slide_change(2, 1);  pageNumber = 1})
+document.getElementById("education").addEventListener("click", function () {
+  slide_change(2, 4);
+  pageNumber = 4;
+});
 
+document.getElementById("skills").addEventListener("click", function () {
+  slide_change(2, 5);
+  pageNumber = 5;
+});
 
-let page3 = document.getElementById("about")
-page3.addEventListener("click", function() {slide_change(2, 3);pageNumber = 3})
+document.getElementById("contact").addEventListener("click", function () {
+  slide_change(2, 6);
+  pageNumber = 6;
+});
 
-
-let page4 = document.getElementById("education")
-page4.addEventListener("click", function() {slide_change(2, 4);pageNumber = 4})
-
-
-let page5 = document.getElementById("skills")
-page5.addEventListener("click", function() {slide_change(2, 5);pageNumber = 5})
-
-
-let page6 = document.getElementById("contact")
-page6.addEventListener("click", function() {slide_change(2, 6);pageNumber = 6})
-
-
-
-let next = document.getElementById("next")
-
-
-function nextSlide(){
-  if (pageNumber<availablePages){
-    slide_change(pageNumber, pageNumber+1);
-    pageNumber = pageNumber+1;
-
-  } else{
-    slide_change(pageNumber--, 1);
-    pageNumber = 1
+// Next and previous slide functions
+function nextSlide() {
+  if (pageNumber < availablePages) {
+    slide_change(pageNumber, pageNumber + 1);
+    pageNumber++;
+  } else {
+    slide_change(pageNumber, 1);
+    pageNumber = 1;
   }
 }
 
-function lastSlide(){
-  if (pageNumber>1){
-    slide_change(pageNumber, pageNumber-1);
-    pageNumber--
-
-  } else{
+function lastSlide() {
+  if (pageNumber > 1) {
+    slide_change(pageNumber, pageNumber - 1);
+    pageNumber--;
+  } else {
     slide_change(pageNumber, availablePages);
-    pageNumber = availablePages
+    pageNumber = availablePages;
   }
 }
 
+// Event listeners for next and back buttons
+document.getElementById("next").addEventListener("click", nextSlide);
+document.getElementById("back").addEventListener("click", lastSlide);
 
+// Touch-based swipe navigation
+let startX = 0,
+  currentX = 0,
+  startY = 0,
+  currentY = 0;
 
-next.addEventListener("click", function() {nextSlide()})
-
-let back = document.getElementById("back")
-back.addEventListener("click", function() {lastSlide()})
-
-// Scrolling
-
-
-let startX = 0;
-let currentX = 0;
-let startY = 0;
-let currentY = 0;
 document.body.addEventListener("touchstart", (event) => {
   startX = event.touches[0].clientX;
   startY = event.touches[0].clientY;
-
 });
 
 document.body.addEventListener("touchmove", (event) => {
@@ -116,36 +106,35 @@ document.body.addEventListener("touchmove", (event) => {
 });
 
 document.body.addEventListener("touchend", () => {
-  endTarget = 15;
-  yFlexibility = 50;
-  if (currentX!=0 && Math.abs(currentY - startY)<yFlexibility){
-    if (currentX < startX-endTarget) {
-      nextSlide();
-    } else if (currentX > startX+endTarget) {
-      lastSlide();
+  let endTarget = 15;
+  let yFlexibility = 50;
+
+  // Detect swipe direction only if there's minimal vertical movement
+  if (currentX !== 0 && Math.abs(currentY - startY) < yFlexibility) {
+    if (currentX < startX - endTarget) {
+      nextSlide(); // Swipe left -> Next slide
+    } else if (currentX > startX + endTarget) {
+      lastSlide(); // Swipe right -> Previous slide
     }
+
     // Reset touch positions
     startX = 0;
-    currentX = 0; 
+    currentX = 0;
     currentY = 0;
-    startY = 0
+    startY = 0;
   }
-})
+});
 
-
-
-
-
-// controlling keys
-
-document.onkeyup = function(e) {
+// Keyboard controls for navigation
+document.onkeyup = function (e) {
   let key = e.which || e.keyCode;
-  if (key == 39) {
-    nextSlide()
-  } else if (key == 37) {
-    lastSlide()
-  } else if (key == 38) {
-    if (pageNumber !==2){
+  if (key === 39) {
+    nextSlide(); // Right arrow -> Next slide
+  } else if (key === 37) {
+    lastSlide(); // Left arrow -> Previous slide
+  } else if (key === 38) {
+    // Up arrow -> Go to main menu (if not already there)
+    if (pageNumber !== 2) {
       slide_change(pageNumber, 2);
       pageNumber = 2;
     }
