@@ -128,11 +128,11 @@ document.body.addEventListener("touchend", () => {
 // Keyboard controls for navigation
 document.onkeyup = function (e) {
   let key = e.which || e.keyCode;
-  if (key === 39) {
+  if (key === 39 || key==68) {
     nextSlide(); // Right arrow -> Next slide
-  } else if (key === 37) {
+  } else if (key === 37 || key==65) {
     lastSlide(); // Left arrow -> Previous slide
-  } else if (key === 38) {
+  } else if (key === 38 || key==87 || key==83 || key==40) {
     // Up arrow -> Go to main menu (if not already there)
     if (pageNumber !== 2) {
       slide_change(pageNumber, 2);
