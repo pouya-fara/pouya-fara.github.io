@@ -143,7 +143,7 @@ li{
 
 
 li:hover + .list-devider{
-    width: 100px;
+    width: 150px;
 }
 
 
