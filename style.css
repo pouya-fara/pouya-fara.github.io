@@ -688,7 +688,6 @@ Mobile view
 
 
 #awards-container{
-    margin-top: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -700,6 +699,7 @@ Mobile view
     scrollbar-width: thin;
     scrollbar-color: white black; 
     overflow-x: hidden;
+    padding: 20px;
     flex-wrap: wrap;
 }
 
