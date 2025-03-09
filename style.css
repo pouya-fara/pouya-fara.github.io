@@ -774,6 +774,7 @@ Mobile view
 }
 
 .project-head{
+    cursor: pointer;
     justify-content: center;
     text-align: center;
     transition: 1s;

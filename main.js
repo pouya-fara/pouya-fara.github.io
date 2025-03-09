@@ -64,7 +64,7 @@ document.getElementById("contact").addEventListener("click", function () {
   slide_change(1, 7);
 });
 
-
+// Project display busttons
 document.querySelectorAll('.project-head').forEach(function (element, index) {
   element.addEventListener('click', function() {
     let descriptions = document.querySelectorAll('.project-description');
@@ -78,7 +78,6 @@ document.querySelectorAll('.project-head').forEach(function (element, index) {
         descriptions[index].style.opacity = 0;
         descriptions[index].style.fontSize = "0px";
         descriptions[index].style.width = "0px";
-
 
       }
     }
