@@ -1,3 +1,15 @@
+// pre loading
+
+window.onload = function(){
+  let preloader = document.getElementById("loading");
+  preloader.style.opacity = 0;
+  preloader.style.display = "none";
+
+  let webContent = document.getElementById("web-content");
+  webContent.style.display = "block";
+}
+
+
 let currentPage = 0; // Tracks the current page
 
 let pageList = ["home", "content", "about", "education", "awards", "skills", "projects", "contact"];
