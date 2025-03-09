@@ -688,7 +688,7 @@ Mobile view
 
 
 #awards-container{
-    margin-top: 50px;
+    margin-top: 20px;
     display: flex;
     text-align: center;
     justify-content: center;
@@ -701,7 +701,6 @@ Mobile view
     scrollbar-color: white black; 
     overflow-x: hidden;
     flex-wrap: wrap;
-    margin: auto;
 }
 
 
@@ -768,7 +767,8 @@ Mobile view
 }
 
 .project{
-    margin-left: 50px;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     text-align: center;
 }
@@ -780,7 +780,9 @@ Mobile view
     width: 300px;
     padding: 20px;
     z-index: 8;
-    margin: auto;
+    margin-right: auto;
+    margin-left:auto;
+
 }
 .project-head h1{
     color: white;
