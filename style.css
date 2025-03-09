@@ -41,7 +41,7 @@ section{
 }
 
 
-#page1{
+#home-page{
     position: relative;
     height: 100vh;
     text-align: center;
@@ -76,58 +76,48 @@ section{
 }
 
 
-
-@keyframes fromRight {
+@keyframes shadow {
     0%{
-        padding-left: 100px;
+        margin-top: -20px;
     }
+
 }
 
-@keyframes fromLeft {
-    0%{
-        padding-right: 100px;
-    }
-}
-#page2{
+
+
+#content-page{
     display: none;
     opacity: 0;
 }
 
-
-#home{
-    animation: fromRight 0.7s;
+#content-page ul li{
+    animation: shadow 0.7s ;
 }
 
-#about{
-    animation: fromLeft 0.7s;
-}
-#education{
-    animation: fromRight 0.7s;
-}
-#skills{
-    animation: fromLeft 0.7s;
-}
-#contact{
-    animation: fromRight 0.7s;
 
-}
-
-ul{
+#content-page ul{
+    margin-top: 150px;
     text-align: center;
     list-style: none;
-    margin-bottom: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 70px;
+    row-gap: 0;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
 }
 
 
-li{
+.page-title{
     color: white;
     font-size: 35px;
-    padding-top: 35px;
     font-family: 'Bitter', serif;
     cursor: pointer;
     width: 300px;
     text-align: center;
     margin: auto;
+    margin-top: 25px;
 }
 
 
@@ -136,14 +126,13 @@ li{
     height: 2px;
     background-color: white;
     margin: auto;
-    transition: 0.4s ease-in-out;
-    border-radius: 50px;
-    margin-top: 2px;
+    transition: 0.3s ease;
+    margin-top: 10px;
 }
 
 
-li:hover + .list-devider{
-    width: 150px;
+h2:hover + .list-devider{
+    width: 100px;
 }
 
 
@@ -191,7 +180,7 @@ li:hover + .list-devider{
 }
 
 
-#page3{
+#about-page{
     opacity: 0;
     display: none;
     text-align: center;
@@ -275,7 +264,7 @@ li:hover + .list-devider{
 }
 
 
-#page4{
+#education-page{
     position: relative;
     display: none;
 }
@@ -408,7 +397,7 @@ li:hover + .list-devider{
 }
 
 
-#page5{
+#skills-page{
     opacity: 0;
     display: none;
     width: 100%;
@@ -416,7 +405,7 @@ li:hover + .list-devider{
 
 
 
-#page6{
+#contact-page{
     opacity: 0;
     display: none;
     height: 100vh;
@@ -514,36 +503,47 @@ Mobile view
 
 
 @media screen and (max-height: 600px){
-    #page1{
+    #home-page{
         position: relative;
         height: 100vh;
         overflow: scroll;
         text-align: center;
     }
     
-    #page2{
-        height: 100vh;
-        overflow: scroll;
-        text-align: center;
-}
-    #page3{
+    #content-page{
         height: 100vh;
         overflow: scroll;
         text-align: center;
     }
-    #page4{
+    #about-page{
         height: 100vh;
         overflow: scroll;
         text-align: center;
-}    
-    #page5{
+    }
+    #education-page{
         height: 100vh;
         overflow: scroll;
         text-align: center;
-}
-    #page6{
+    }    
+    #skills-page{
+        height: 100vh;
         overflow: scroll;
-}
+        text-align: center;
+    }
+    #contact-page{
+        overflow: scroll;
+    }
+    #awards-page{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+    }    
+    #projects-page{
+        height: 100vh;
+        overflow: scroll;
+        text-align: center;
+    }
+
 }
 
 
@@ -590,6 +590,7 @@ Mobile view
         margin-left: auto;
     }
 
+
     #contact_list{
         display: inline-block;
         grid-template-columns: 1fr;
@@ -607,7 +608,7 @@ Mobile view
     }
     
     .title h1{
-        font-size: 40px;
+        font-size: 50px;
         color: white;
         transition: 0.7s;
         font-family: 'Playfair Display', serif;
@@ -624,8 +625,14 @@ Mobile view
         margin: auto;
     }
     
-    li{
+    .page-title{
         font-size: 30px;
+    }
+    #content-page ul{
+        margin-top: 20px;
+        justify-content: center;
+        display: block;
+
     }
 
 
@@ -668,4 +675,137 @@ Mobile view
         font-size: 20px;
     }
     
+}
+
+
+
+
+#awards-page{
+    display: none;
+    opacity: 0;
+}
+
+
+
+#awards-container{
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: white black; 
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+
+@keyframes award {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+
+.award{
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+    padding: 30px;
+    animation: award 2s;
+}
+
+
+.award h2{
+    font-family: 'Libre Baskerville', serif;
+    color: white;
+    font-size: 30px;
+
+}
+
+.award h2{
+    font-family: 'Libre Baskerville', serif;
+    color: white;
+    font-size: 30px;
+}
+.award h3{
+    font-family: 'Playfair Display', serif;
+    margin-top: 5px;
+    color: white;
+}
+
+.award p{
+    margin-top: 20px;
+    color: white;
+    font-family: 'Playfair Display', serif;
+
+}
+
+
+#projects-page{
+    display: none;
+    opacity: 0;
+}
+
+#project-container{
+    margin-top: 50px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    overflow-y: auto;
+    height: 500px;
+}
+
+.project{
+    margin-left: 50px;
+    justify-content: center;
+    text-align: center;
+}
+
+.project-head{
+    justify-content: center;
+    text-align: center;
+    transition: 1s;
+    width: 300px;
+    padding: 20px;
+    z-index: 8;
+    margin: auto;
+}
+.project-head h1{
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+
+.project-description{
+    transition: 0.7s;
+    background-color: white;
+    border-radius: 10px;
+    transition: 0.5s;
+    font-size: 0px;
+    padding: 10px;
+    font-family: 'Playfair Display', serif;
+    width: 0px;
+    text-align: left;
+    opacity: 0;
+}
+
+
+.project-icon{
+    width: 100px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(243, 240, 237);
 }

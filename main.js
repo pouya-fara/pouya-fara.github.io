@@ -1,87 +1,104 @@
-let pageNumber = 1; // Tracks the current page
-let availablePages = 6; // Total number of available pages
+let currentPage = 0; // Tracks the current page
+
+let pageList = ["home", "content", "about", "education", "awards", "skills", "projects", "contact"];
 
 // Function to change wallpaper and transition between pages
 function slide_change(p1, p2) {
   let wallpaper = document.getElementsByClassName("background")[0];
 
   // Change background image based on the target page
-  for (let i = 1; i <= availablePages; i++) {
-    if (i === p2) {
-      wallpaper.style.backgroundImage = `url('images/back${i}.jpg')`;
-    }
-  }
+  wallpaper.style.backgroundImage = `url('images/back-${pageList[p2]}.jpg')`;
 
   // Hide the current page
-  let page1 = document.getElementById("page" + p1);
+  let page1 = document.getElementById(pageList[p1]+"-page");
   page1.style.opacity = 0;
   page1.style.display = "none";
 
   // Show the new page
-  let page2 = document.getElementById("page" + p2);
+  let page2 = document.getElementById(pageList[p2]+"-page");
   page2.style.display = "block";
   page2.style.opacity = 1;
+
+  currentPage = p2;
+
 }
 
 // Event listeners for navigation elements
 let pic = document.getElementById("picture");
 pic.addEventListener("click", function () {
-  slide_change(1, 2);
-  pageNumber = 2;
+  slide_change(0, 1);
 });
 
 let menu = document.getElementById("menu");
 menu.addEventListener("click", function () {
-  if (pageNumber !== 2) {
-    slide_change(pageNumber, 2);
-    pageNumber = 2;
+  if (currentPage !== 1) {
+    slide_change(currentPage, 1);
   }
 });
 
 // Table of contents navigation
 document.getElementById("home").addEventListener("click", function () {
-  slide_change(2, 1);
-  pageNumber = 1;
+  slide_change(1, 0);
 });
 
 document.getElementById("about").addEventListener("click", function () {
-  slide_change(2, 3);
-  pageNumber = 3;
+  slide_change(1, 2);
 });
 
 document.getElementById("education").addEventListener("click", function () {
-  slide_change(2, 4);
-  pageNumber = 4;
+  slide_change(1, 3);
+});
+document.getElementById("awards").addEventListener("click", function () {
+  slide_change(1, 4);
 });
 
 document.getElementById("skills").addEventListener("click", function () {
-  slide_change(2, 5);
-  pageNumber = 5;
+  slide_change(1, 5);
+});
+
+document.getElementById("projects").addEventListener("click", function () {
+  slide_change(1, 6);
 });
 
 document.getElementById("contact").addEventListener("click", function () {
-  slide_change(2, 6);
-  pageNumber = 6;
+  slide_change(1, 7);
+});
+
+
+document.querySelectorAll('.project-head').forEach(function (element, index) {
+  element.addEventListener('click', function() {
+    let descriptions = document.querySelectorAll('.project-description');
+    if (descriptions[index]) {
+      if (descriptions[index].style.opacity == 0){
+        descriptions[index].style.opacity = 1;
+        descriptions[index].style.fontSize = "15px";
+        descriptions[index].style.width = "300px";
+      }
+      else{
+        descriptions[index].style.opacity = 0;
+        descriptions[index].style.fontSize = "0px";
+        descriptions[index].style.width = "0px";
+
+
+      }
+    }
+  });
 });
 
 // Next and previous slide functions
 function nextSlide() {
-  if (pageNumber < availablePages) {
-    slide_change(pageNumber, pageNumber + 1);
-    pageNumber++;
+  if (currentPage < pageList.length-1) {
+    slide_change(currentPage, currentPage + 1);
   } else {
-    slide_change(pageNumber, 1);
-    pageNumber = 1;
+    slide_change(currentPage, 0);
   }
 }
 
 function lastSlide() {
-  if (pageNumber > 1) {
-    slide_change(pageNumber, pageNumber - 1);
-    pageNumber--;
+  if (currentPage >= 1) {
+    slide_change(currentPage, currentPage - 1);
   } else {
-    slide_change(pageNumber, availablePages);
-    pageNumber = availablePages;
+    slide_change(currentPage, pageList.length-1);
   }
 }
 
@@ -134,9 +151,8 @@ document.onkeyup = function (e) {
     lastSlide(); // Left arrow -> Previous slide
   } else if (key === 38 || key==87 || key==83 || key==40) {
     // Up arrow -> Go to main menu (if not already there)
-    if (pageNumber !== 2) {
-      slide_change(pageNumber, 2);
-      pageNumber = 2;
+    if (currentPage !== 1) {
+      slide_change(currentPage, 1);
     }
   }
 };
