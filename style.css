@@ -803,7 +803,6 @@ Mobile view
     cursor: pointer;
     justify-content: center;
     text-align: center;
-    transition: 1s;
     width: 300px;
     padding: 20px;
     z-index: 8;
@@ -819,10 +818,9 @@ Mobile view
 
 
 .project-description{
-    transition: 0.7s;
     background-color: white;
     border-radius: 10px;
-    transition: 0.5s;
+    transition: 0.4s;
     font-size: 0px;
     padding: 10px;
     font-family: 'Playfair Display', serif;
@@ -837,4 +835,10 @@ Mobile view
     padding: 5px;
     border-radius: 50%;
     background-color: rgb(243, 240, 237);
+}
+
+
+
+.up{
+    transition: 0.4s;
 }

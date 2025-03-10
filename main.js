@@ -80,16 +80,20 @@ document.getElementById("contact").addEventListener("click", function () {
 document.querySelectorAll('.project-head').forEach(function (element, index) {
   element.addEventListener('click', function() {
     let descriptions = document.querySelectorAll('.project-description');
+    let up = document.querySelectorAll('.up');
+    
     if (descriptions[index]) {
       if (descriptions[index].style.opacity == 0){
         descriptions[index].style.opacity = 1;
         descriptions[index].style.fontSize = "15px";
         descriptions[index].style.width = "300px";
+        up[index].style.transform = "rotate(180deg)"
       }
       else{
         descriptions[index].style.opacity = 0;
         descriptions[index].style.fontSize = "0px";
         descriptions[index].style.width = "0px";
+        up[index].style.transform = "rotate(0deg)"
 
       }
     }
