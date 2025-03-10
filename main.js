@@ -2,7 +2,7 @@
 
 window.onload = function(){
   let preloader = document.getElementById("loading");
-  preloader.style.opacity = 0;
+  preloader.style.opacity = 1;
   preloader.style.display = "none";
 
   let webContent = document.getElementById("web-content");
