@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: none;
     user-select: none;
+    overflow-x: hidden;
 }
 
 
@@ -132,6 +133,7 @@ section{
     width: 100%;
     justify-content: center;
     text-align: center;
+    margin-bottom: 40px;
 }
 
 
@@ -214,7 +216,7 @@ h2:hover + .list-devider{
 
 }
 
-.text_container{
+.text-container{
     margin: auto;
     text-align: center;
     margin-bottom: 50px;
@@ -658,7 +660,10 @@ Mobile view
         margin-top: 20px;
         justify-content: center;
         display: block;
-
+        overflow-y: auto;
+        height: 60%;
+        overflow-x: hidden;
+    
     }
 
 
