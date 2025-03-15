@@ -790,6 +790,8 @@ Mobile view
     gap: 50px;
     overflow-y: auto;
     height: 500px;
+    scrollbar-width: thin;
+    scrollbar-color: white black; 
 }
 
 .project{
@@ -797,6 +799,7 @@ Mobile view
     margin-right: auto;
     justify-content: center;
     text-align: center;
+
 }
 
 .project-head{
@@ -818,16 +821,29 @@ Mobile view
 
 
 .project-description{
-    background-color: white;
+    display: none;
+    background-color: transparent;
     border-radius: 10px;
     transition: 0.4s;
-    font-size: 0px;
-    padding: 10px;
+    padding: 5px;
     font-family: 'Playfair Display', serif;
-    width: 0px;
     text-align: left;
     opacity: 0;
+    color: white;
+    width: 300px;
+    text-shadow: 2px 2px black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 20px;
 }
+
+.project-devider{
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
 
 
 .project-icon{

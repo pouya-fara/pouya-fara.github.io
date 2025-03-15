@@ -84,17 +84,16 @@ document.querySelectorAll('.project-head').forEach(function (element, index) {
     
     if (descriptions[index]) {
       if (descriptions[index].style.opacity == 0){
-        descriptions[index].style.opacity = 1;
-        descriptions[index].style.fontSize = "15px";
-        descriptions[index].style.width = "300px";
+        descriptions[index].style.display = "block";
+        setTimeout(()=>{descriptions[index].style.opacity = 1;}, 0)
+        
         up[index].style.transform = "rotate(180deg)"
+
       }
       else{
         descriptions[index].style.opacity = 0;
-        descriptions[index].style.fontSize = "0px";
-        descriptions[index].style.width = "0px";
         up[index].style.transform = "rotate(0deg)"
-
+        setTimeout(()=>{descriptions[index].style.display = "none";}, 400)
       }
     }
   });
