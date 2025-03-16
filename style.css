@@ -356,6 +356,7 @@ h2:hover + .list-devider{
 
 
 .learned_skills{
+    scroll-snap-align: end;
     margin-bottom: auto;
     list-style: none;
     display: flex;
@@ -510,7 +511,7 @@ h2:hover + .list-devider{
     scroll-snap-type: y mandatory;
     background: transparent;
     scrollbar-width: thin;
-    scrollbar-color: white black; 
+    scrollbar-color: white black;
 }
 
 #horizontal_line{
