@@ -356,18 +356,6 @@ h2:hover + .list-devider{
 
 
 .learned_skills{
-    scroll-snap-align: end;
-    margin-bottom: auto;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    row-gap: 0;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
 #skills_titles{
@@ -508,10 +496,16 @@ h2:hover + .list-devider{
     align-items: center;
     height: 500px;
     overflow-y: auto;
-    scroll-snap-type: y mandatory;
     background: transparent;
     scrollbar-width: thin;
     scrollbar-color: white black;
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 50px;
+    row-gap: 0;
+    margin-left: auto;
+    margin-right: auto;
+    scroll-snap-type: y mandatory;
 }
 
 #horizontal_line{
