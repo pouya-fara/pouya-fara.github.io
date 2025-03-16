@@ -375,7 +375,7 @@ h2:hover + .list-devider{
 }
 
 .skill_element{
-    scroll-snap-align: start;
+    scroll-snap-align: end;
     text-align: center;
     width: 200px;
 }
