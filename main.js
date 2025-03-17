@@ -163,8 +163,8 @@ document.onkeyup = function (e) {
     nextSlide(); // Right arrow -> Next slide
   } else if (key === 37 || key==65) {
     lastSlide(); // Left arrow -> Previous slide
-  } else if (key === 38 || key==87 || key==83 || key==40) {
-    // Up arrow -> Go to main menu (if not already there)
+  } else if (key == 13) {
+    // Enter -> Go to main menu (if not already there)
     if (currentPage !== 1) {
       slide_change(currentPage, 1);
     }
