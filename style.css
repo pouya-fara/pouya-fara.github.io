@@ -151,7 +151,7 @@ section{
 
 .list-devider{
     width: 0;
-    height: 2px;
+    height: 0px;
     background-color: white;
     margin: auto;
     transition: 0.3s ease;
@@ -160,7 +160,9 @@ section{
 
 
 h2:hover + .list-devider{
-    width: 100px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
 }
 
 
@@ -354,9 +356,6 @@ h2:hover + .list-devider{
     border-radius: 5px;
 }
 
-
-.learned_skills{
-}
 
 #skills_titles{
     display: flex;
