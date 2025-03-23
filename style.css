@@ -310,7 +310,7 @@ h2:hover + .list-devider{
 .education_text{
     position: relative;
     text-align: center;
-    margin-top: 120px;
+    margin-top: 80px;
     color: white;
     text-shadow: 2px 2px black;
     text-rendering: geometricPrecision;
@@ -319,7 +319,8 @@ h2:hover + .list-devider{
     margin-right: auto;
 }
 
-.education_text h2{
+
+.education_text h1{
     font-size: 55px;
     animation: university_text 0.7s;
 
@@ -336,7 +337,7 @@ h2:hover + .list-devider{
 
 .education_text h4{
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 #university{
@@ -345,23 +346,13 @@ h2:hover + .list-devider{
     text-shadow: 2px 2px black;
     transition: 0.7s;
     animation: university 0.7s;
-    font-size: 55px;
+    font-size: 45px;
 }
 
 
 #university:hover{
     color: white;
 
-}
-
-#york_pic{
-    margin-top: 45px;
-    text-align: center;
-}
-#york_pic img{
-    width: 150px;
-    animation: university 0.7s;
-    border-radius: 5px;
 }
 
 
@@ -539,6 +530,7 @@ Mobile view
         overflow: scroll;
         text-align: center;
     }
+
     
     #content-page{
         height: 100vh;
@@ -585,6 +577,9 @@ Mobile view
         display: block;
         width: 100%;
     }
+
+
+
 
     #picture{
         width: 180px;
@@ -668,22 +663,17 @@ Mobile view
     
     }
 
-    .education_text{
-        margin-top: 80px;
-
-    }
     .education_text h1{
         font-size: 30px;
     }
+
     .education_text h4{
-        font-size: 20px;
+        font-size: 15px;
     }
     #university{
-        font-size:40px;
+        font-size:30px;
     }
-    #york_pic img{
-        width: 90px;
-    }
+
     .skill_element h1{
         height: 80px;
         font-size: 20px;
