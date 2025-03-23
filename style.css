@@ -668,7 +668,10 @@ Mobile view
     
     }
 
+    .education_text{
+        margin-top: 80px;
 
+    }
     .education_text h1{
         font-size: 30px;
     }
