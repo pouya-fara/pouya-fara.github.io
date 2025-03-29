@@ -31,6 +31,11 @@ html body{
     width: 100%;
     height: 100vh;
     background-color: black;
+    overflow-y: hidden;
+}
+
+html{
+    overflow-y: hidden;
 
 }
 
@@ -67,6 +72,7 @@ section{
     z-index: -1;
     opacity: 0.4;
     transition: 0.5s ease;
+    overflow-y: hidden;
 }
 
 
