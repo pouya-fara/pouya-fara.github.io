@@ -49,6 +49,7 @@ html{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 section{
