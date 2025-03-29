@@ -4,6 +4,9 @@
     box-sizing: none;
     user-select: none;
     overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: white black;
+
 }
 
 
@@ -26,7 +29,7 @@
 
 html body{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     background-color: black;
 
 }
@@ -38,18 +41,24 @@ html body{
 #web-content{
     animation: load 2s;
     display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 section{
     position: relative;
     width: 100%;
     margin-bottom: auto;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+    height: 100vh;
 }
 
 .background{
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -61,16 +70,9 @@ section{
 }
 
 
-.content{
-    transition: 0.3s ease-in-out;
-    z-index: 2;
-    height: 100vh;
-}
-
 
 #home-page{
     position: relative;
-    height: 100vh;
     text-align: center;
 }
 
@@ -118,35 +120,33 @@ section{
 }
 
 #content-page ul li{
-    animation: shadow 0.7s ;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
 #content-page ul{
-    margin-top: 150px;
+    animation: shadow 0.7s ;
     text-align: center;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 70px;
-    row-gap: 0;
-    width: 100%;
+    column-gap: 100px;
+    row-gap: 20px;
+    width: 80%;
     justify-content: center;
     text-align: center;
-    margin-bottom: 40px;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.7s ;
 }
 
-
-.page-title{
-    color: white;
-    font-size: 35px;
-    font-family: 'Bitter', serif;
-    cursor: pointer;
-    width: 300px;
-    text-align: center;
-    margin: auto;
-    margin-top: 25px;
-}
 
 
 .list-devider{
@@ -166,19 +166,24 @@ h2:hover + .list-devider{
 }
 
 
-.title{
-    margin: auto;
+#title{
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
+    overflow: hidden;
+    display: none;
+    height: 100px;
     padding-top: 50px;
 }
 
-.title h1{
+#title h1{
     font-size: 60px;
     color: white;
     transition: 0.7s;
     font-family: 'Playfair Display', serif;
     text-align: center;
     text-shadow: 2px 2px black;
+    padding: auto;
 }
 
 .devider{
@@ -193,42 +198,33 @@ h2:hover + .list-devider{
 @keyframes about {
     0%{
         opacity: 0;
-        margin-top: 100px;
     }
     100%{
         opacity: 100%;
     }
 }
 
-
+.content{
+    height:100% ;
+}
 .text{
     color: white;
     font-size: 20px;
     font-family: 'Playfair Display', serif;
-    line-height: 2;
-
+    animation: about 1.5s;
+    overflow-y: hidden;
 }
-
-
+.text-container{
+    width: 80%;
+    text-align: left;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
 #about-page{
     opacity: 0;
     display: none;
     text-align: center;
-    height: 100vh;
-
-}
-
-.text-container{
-    margin: auto;
-    text-align: left;
-    margin-bottom: 50px;
-    margin-top: 35px;
-    animation: about 1s;
-    width: 80%;
-    height: 70%;
-    scrollbar-width: thin;
-    scrollbar-color: white black;
-
 }
 
 
@@ -254,21 +250,35 @@ h2:hover + .list-devider{
     background-color: transparent;
     border: none;
     background-repeat: no-repeat;
+    margin: auto;
+    background-size: contain;
+    
+
+
 }
 
+
+#screen{
+    margin-top: 50px;
+    height: 90%;
+    width: 100%;
+}
 
 #control{
-    margin: auto;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
     width: 500px;
-    left: 0%;
-    right: 0%;
-    display: flex;
-    position: fixed;
-    bottom: 0;
     column-gap: 2px;
     z-index: 5;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 0;
 }
 #next{
+    margin: auto;
     transition: 0.3s;
     cursor: pointer;
     user-select: none;
@@ -278,6 +288,8 @@ h2:hover + .list-devider{
     background-color: transparent;
     border: none;
     background-repeat: no-repeat;
+    background-size: contain;
+
 }
 
 
@@ -304,17 +316,16 @@ h2:hover + .list-devider{
 }
 
 
-@keyframes university_text {
+@keyframes university-text {
     0%{
-        font-size: 40px;
+        margin-top: 35px;
     }
 
 }
 
-.education_text{
+.education-text{
     position: relative;
     text-align: center;
-    margin-top: 80px;
     color: white;
     text-shadow: 2px 2px black;
     text-rendering: geometricPrecision;
@@ -324,9 +335,9 @@ h2:hover + .list-devider{
 }
 
 
-.education_text h1{
+.education-text h1{
     font-size: 55px;
-    animation: university_text 0.7s;
+    animation: university-text 1s;
 
 }
 
@@ -339,7 +350,7 @@ h2:hover + .list-devider{
 
 }
 
-.education_text h4{
+.education-text h4{
     margin-top: 20px;
     font-size: 25px;
 }
@@ -363,24 +374,8 @@ h2:hover + .list-devider{
 }
 
 
-#skills_titles{
-    display: flex;
-    width: 100%;
-    
-}
-#skills_titles div{
-    width: 50%;
-    margin-left: auto;
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    padding: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-
-}
-
-.skill_element{
-    scroll-snap-align: end;
+.skill-element{
+    scroll-snap-align: start;
     text-align: center;
     width: 200px;
 }
@@ -393,23 +388,24 @@ h2:hover + .list-devider{
 }
 
 
-.skill_element img{
+.skill-element img{
     height: 75px;
     margin-top: 50px;
     border-radius: 100%;
     animation: skills 0.5s;
     background-color: white;
+    margin-top: auto;
 }
 
-.skill_element h1{
-    margin-top: 20px;
+.skill-element h1{
     color: white;
     font-size: 20px;
     font-family: 'Playfair Display', serif;
     text-shadow: 3px 3px black;
+    margin-bottom: 50px;
 }
 
-.vertical_line{
+.vertical-line{
     width: 2px;
     height: 50px;
     background-color: white;
@@ -430,79 +426,73 @@ h2:hover + .list-devider{
 #contact-page{
     opacity: 0;
     display: none;
-    height: 100vh;
     width: 100%;
 }
 
 
-@keyframes contact_animation {
+@keyframes contact-animation {
     0%{
-        margin-top: 10px;
+        margin-top: 40px;
     }
 }
 
 
-#contact_list{
-    margin-top: 50px;
+#contact-list{
     text-align: center;
     display: flex;
     width: 100%;
-    animation: contact_animation 1.5s;
-    margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
+    height: 100%;
 }
 
-#contact_list div{
+.contact-element{
     color: black;
-    margin-top: 50px;
-    display: block;
     margin-right: auto;
     margin-left: auto;
     transition: 0.5s;
     text-align: center;
     width: 100%;
+    height: 150px;
+    animation: contact-animation 0.7s;
+
 }
 
 
-
-#contact_list div:hover{
-    margin-top: 40px;    
+.contact-element:hover{
+    padding-top: 20px;    
 }
 
 
-#contact_list div img{
-    width: 85px;
+#contact-list img{
+    width: 80px;
     margin-right: auto;
     margin-left: auto;
     
 }
 
-#contact_list div a{
+#contact-list a{
     margin-top: 20px;
     font-family: 'Libre Baskerville', serif;
     color: white;
     text-decoration: none;
     text-shadow: 2px 2px black;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 
-#contact_list div a:visited{
+#contact-list div a:visited{
     color: white;
     
 }
 
-#skills_list{
+#skills-list{
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 70%;
     overflow-y: auto;
     background: transparent;
-    scrollbar-width: thin;
-    scrollbar-color: white black;
     width: 80%;
     flex-wrap: wrap;
     gap: 50px;
@@ -510,17 +500,9 @@ h2:hover + .list-devider{
     margin-left: auto;
     margin-right: auto;
     scroll-snap-type: y mandatory;
+    height: 100%;
 }
 
-#horizontal_line{
-    height: 100vh;
-    width: 4px;
-    background-color: white;
-    text-align: center;
-    margin-bottom: auto;
-    margin-top: auto;
-    border-radius: 50%;
-}
 
 /*
 
@@ -532,42 +514,32 @@ Mobile view
 @media screen and (max-height: 600px){
     #home-page{
         position: relative;
-        height: 100vh;
         overflow: scroll;
         text-align: center;
     }
 
     
+    #title{
+        height: 150px;
+    }
     #content-page{
-        height: 100vh;
         overflow: scroll;
         text-align: center;
     }
-    #about-page{
-        height: 100vh;
-        overflow: scroll;
-        text-align: center;
-    }
+
     #education-page{
-        height: 100vh;
         overflow: scroll;
         text-align: center;
     }    
     #skills-page{
-        height: 100vh;
         overflow: scroll;
         text-align: center;
     }
     #contact-page{
         overflow: scroll;
     }
-    #awards-page{
-        height: 100vh;
-        overflow: scroll;
-        text-align: center;
-    }    
+ 
     #projects-page{
-        height: 100vh;
         overflow: scroll;
         text-align: center;
     }
@@ -577,7 +549,10 @@ Mobile view
 
 @media screen and (max-width: 840px){
 
-    #skills_list{
+    #screen{
+        margin-top: 10px;
+    }
+    #skills-list{
         overflow-y: scroll;
         overflow-x: hidden;
         display: block;
@@ -603,42 +578,25 @@ Mobile view
         font-size: 15px;
     }
 
-    .vertical_line{
+    .vertical-line{
         height: 50px;
     }
 
-    #horizontal_line{
-        margin-top: 0;
-        height: 4px;
-        width: 70%;
-        background-color: white;
-        text-align: center;
-        margin-bottom: auto;
-        margin-top: auto;
-        border-radius: 50%;
-        margin-right: auto;
-        margin-left: auto;
-    }
 
 
-    #contact_list{
-        display: inline-block;
+
+    #contact-list{
+        flex-direction: column;
         grid-template-columns: 1fr;
-        animation: contact_animation 0.7s;
-
+        animation: contact-animation 0.7s;
+        display: block;
     }
-    #contact_list div:hover{
+    #contact-list div:hover{
         margin-bottom: 2px;    
     }
-
-    .title{
-        margin: auto;
-        text-align: center;
-        padding-top: 50px;
-    }
     
-    .title h1{
-        font-size: 40px;
+    #title h1{
+        font-size: 35px;
         color: white;
         transition: 0.7s;
         font-family: 'Playfair Display', serif;
@@ -658,75 +616,71 @@ Mobile view
     .page-title{
         font-size: 30px;
     }
+
+    #title{
+        height: 120px;
+    }
     #content-page ul{
-        margin-top: 20px;
         justify-content: center;
         display: block;
         overflow-y: auto;
-        height: 60%;
         overflow-x: hidden;
     
     }
 
-    .education_text h1{
+    .education-text h1{
         font-size: 30px;
     }
 
-    .education_text h4{
+    .education-text h4{
         font-size: 15px;
     }
     #university{
         font-size:30px;
     }
 
-    .skill_element h1{
+    .skill-element h1{
         height: 80px;
         font-size: 20px;
         text-align: center;
     }
-    .skill_element img{
+    .skill-element img{
         height: 70px;
         margin-top: 30px;
         border-radius: 100%;
     }
-    .skill_element{
+    .skill-element{
         margin-left: auto;
         margin-right: auto;
     }
-    #contact_list{
-        margin-top: 25px;
-    }
-    #contact_list div img{
-        width: 75px;
+
+    #contact-list img{
+        width: 60px;
         margin-right: auto;
         margin-left: auto;
         
     }
     
-    #contact_list div a{
+    #contact-list a{
         margin-top: 0px;
         font-family: 'Libre Baskerville', serif;
         color: white;
         text-decoration: none;
         text-shadow: 2px 2px black;
-        font-size: 20px;
+        font-size: 15px;
     }
     
 }
-
 
 
 
 #awards-page{
     display: none;
     opacity: 0;
-    overflow-y: auto;
 }
 
 
-
 #awards-container{
-    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -736,13 +690,10 @@ Mobile view
     overflow-y: auto;
     scroll-snap-type: y mandatory;
     background: transparent;
-    scrollbar-width: thin;
-    scrollbar-color: white black; 
     overflow-x: hidden;
     padding: 20px;
     flex-wrap: wrap;
     width: 80%;
-    height: 70%;
 }
 
 
@@ -757,6 +708,7 @@ Mobile view
 
 
 .award{
+    scroll-snap-align: start;
     border-color: white;
     border-width: 2px;
     border-style: solid;
@@ -798,24 +750,22 @@ Mobile view
 }
 
 #project-container{
-    margin-top: 50px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    text-align: center;
     flex-wrap: wrap;
-    gap: 50px;
+    gap: 10px;
     overflow-y: auto;
-    height: 70%;
-    scrollbar-width: thin;
-    scrollbar-color: white black; 
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 .project{
     margin-left: auto;
     margin-right: auto;
-    justify-content: center;
-    text-align: center;
+    width: 250px;
 
 }
 
@@ -823,7 +773,6 @@ Mobile view
     cursor: pointer;
     justify-content: center;
     text-align: center;
-    width: 300px;
     padding: 20px;
     z-index: 8;
     margin-right: auto;
@@ -847,7 +796,6 @@ Mobile view
     text-align: left;
     opacity: 0;
     color: white;
-    width: 300px;
     text-shadow: 2px 2px black;
     margin-left: auto;
     margin-right: auto;

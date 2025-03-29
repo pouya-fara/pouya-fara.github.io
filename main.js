@@ -1,21 +1,40 @@
-// pre loading
 
+// pre loading
 window.onload = function(){
   let preloader = document.getElementById("loading");
   preloader.style.opacity = 1;
   preloader.style.display = "none";
 
   let webContent = document.getElementById("web-content");
-  webContent.style.display = "block";
+  webContent.style.display = "flex";
 }
 
 
 let currentPage = 0; // Tracks the current page
 
 let pageList = ["home", "content", "about", "education", "awards", "skills", "projects", "contact"];
+let pageTitle = ["", "Table of Contents", "About Me", "Education", "Awards & Scholarships", "Technical Skills", "Projects", "Contact"];
+
+// Function to change the title of the page
+
+
+function setTitle(index){
+  let title = document.getElementById("title");
+  let text = document.querySelector("#title h1");
+
+  if (index>0){
+    title.style.display = "block";
+    text.textContent = pageTitle[index];
+  }
+  else{
+    title.style.display = "none";
+    text.textContent = pageTitle[index];
+  }
+}
 
 // Function to change wallpaper and transition between pages
 function slide_change(p1, p2) {
+  setTitle(p2)
   let wallpaper = document.getElementsByClassName("background")[0];
 
   // Change background image based on the target page
@@ -30,6 +49,16 @@ function slide_change(p1, p2) {
   let page2 = document.getElementById(pageList[p2]+"-page");
   page2.style.display = "block";
   page2.style.opacity = 1;
+
+
+  if (p2 ==0){
+    console.log("entered")
+    document.getElementById("screen").style.height = "90%";
+  }
+  else{
+    document.getElementById("screen").style.height = "67%";
+  }
+
 
   currentPage = p2;
 
