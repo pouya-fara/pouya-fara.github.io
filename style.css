@@ -204,9 +204,9 @@ h2:hover + .list-devider{
 .text{
     color: white;
     font-size: 20px;
-    font-family: 'Bitter', serif;
+    font-family: 'Playfair Display', serif;
     line-height: 2;
-    height: 400px;
+
 }
 
 
@@ -220,11 +220,15 @@ h2:hover + .list-devider{
 
 .text-container{
     margin: auto;
-    text-align: center;
+    text-align: left;
     margin-bottom: 50px;
     margin-top: 35px;
     animation: about 1s;
     width: 80%;
+    height: 70%;
+    scrollbar-width: thin;
+    scrollbar-color: white black;
+
 }
 
 
@@ -447,7 +451,6 @@ h2:hover + .list-devider{
     margin-bottom: 70px;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 #contact_list div{
@@ -495,7 +498,7 @@ h2:hover + .list-devider{
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 70%;
     overflow-y: auto;
     background: transparent;
     scrollbar-width: thin;
@@ -583,7 +586,6 @@ Mobile view
 
 
 
-
     #picture{
         width: 180px;
         border-radius: 100%;
@@ -636,7 +638,7 @@ Mobile view
     }
     
     .title h1{
-        font-size: 50px;
+        font-size: 40px;
         color: white;
         transition: 0.7s;
         font-family: 'Playfair Display', serif;
@@ -718,7 +720,6 @@ Mobile view
 #awards-page{
     display: none;
     opacity: 0;
-    height: 100vh;
     overflow-y: auto;
 }
 
@@ -741,7 +742,7 @@ Mobile view
     padding: 20px;
     flex-wrap: wrap;
     width: 80%;
-    gap: 50px;
+    height: 70%;
 }
 
 
@@ -805,7 +806,7 @@ Mobile view
     flex-wrap: wrap;
     gap: 50px;
     overflow-y: auto;
-    height: 500px;
+    height: 70%;
     scrollbar-width: thin;
     scrollbar-color: white black; 
 }
