@@ -133,8 +133,8 @@ section{
     margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
 }
-
 
 #content-page ul{
     animation: shadow 0.7s ;
