@@ -1,4 +1,10 @@
 
+document.querySelector("html").style.height = window.innerHeight + "px";
+document.querySelector("body").style.height = window.innerHeight + "px";
+document.querySelector(".background").style.height = window.innerHeight + "px";
+document.querySelector("#loading").style.height = window.innerHeight + "px";
+document.querySelector("#web-content").style.height = window.innerHeight + "px";
+
 // pre loading
 window.onload = function(){
   let preloader = document.getElementById("loading");
