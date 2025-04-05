@@ -43,6 +43,7 @@ html{
 @keyframes load {
     0%{opacity: 0;}
 }
+
 #web-content{
     animation: load 2s;
     display: none;
@@ -249,8 +250,6 @@ h2:hover + .list-devider{
 
 #back{
     transition: 0.2s ease-in-out;
-
-    transition: 0.2s;
     cursor: pointer;
     user-select: none;
     -webkit-user-drag: none;
@@ -820,12 +819,19 @@ Mobile view
     cursor: pointer;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     z-index: 8;
     margin-right: auto;
     margin-left:auto;
+    animation: project-animation 1s ;
 
 }
+
+
+@keyframes project-animation {
+    0%{opacity: 0;}
+}
+
 .project-head h1{
     color: white;
     font-family: 'Playfair Display', serif;
@@ -869,10 +875,26 @@ Mobile view
 
 
 .up{
-    transition: 0.4s;
+    transition: 0.25s;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-drag: none;
+    width: 25px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    background-repeat: no-repeat;
+    margin: auto;
+    background-size: contain;
+    flex-direction: column;
+    border-width: 2px 2px 0px 0px;
+    border-color: white;
+    border-radius: 4%;
+    border-style: solid;
+    transform: rotate(-45deg);
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
-
-
 
 
 /* Scroll bar style */
