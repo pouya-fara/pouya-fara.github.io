@@ -48,7 +48,6 @@ html{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
 }
 
 section{
@@ -178,7 +177,7 @@ h2:hover + .list-devider{
     text-align: center;
     overflow: hidden;
     display: none;
-    height: 100px;
+    height: 15%;
     padding-top: 50px;
 }
 
@@ -211,7 +210,7 @@ h2:hover + .list-devider{
 }
 
 .content{
-    height:100% ;
+    height:100%;
 }
 .text{
     color: white;
@@ -248,30 +247,37 @@ h2:hover + .list-devider{
 
 
 #back{
-    transition: 0.3s;
+    transition: 0.2s ease-in-out;
+
+    transition: 0.2s;
     cursor: pointer;
     user-select: none;
     -webkit-user-drag: none;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     background-color: transparent;
     border: none;
     background-repeat: no-repeat;
     margin: auto;
     background-size: contain;
-    
-
-
+    display: flex;
+    column-gap: 2px;
+    flex-direction: column;
+    border-width: 2px 2px 0px 0px;
+    border-color: white;
+    border-radius: 4%;
+    border-style: solid;
+    transform: rotate(225deg);
 }
 
 
 #screen{
-    margin-top: 50px;
-    height: 90%;
+    flex: 1;
     width: 100%;
 }
 
 #control{
+    
     overflow: hidden;
     margin-left: auto;
     margin-right: auto;
@@ -279,43 +285,76 @@ h2:hover + .list-devider{
     column-gap: 2px;
     z-index: 5;
     height: 100px;
+    flex-shrink: 0;
     justify-content: center;
     align-items: center;
     display: flex;
     margin-bottom: 0;
 }
 #next{
+
     margin: auto;
-    transition: 0.3s;
+    transition: 0.2s ease-in-out;
     cursor: pointer;
     user-select: none;
     -webkit-user-drag: none;
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
     background-color: transparent;
     border: none;
     background-repeat: no-repeat;
     background-size: contain;
+    border-width: 2px 2px 0px 0px;
+    border-color: white;
+    border-radius: 4%;
+    border-style: solid;
+    transform: rotate(45deg);
 
 }
 
 
 #menu{
+    transition: 0.2s ease-in-out;
     z-index: 2;
     text-align: center;
     margin: auto;
     cursor: pointer;
-    transition: 0.5s;
+    transition: 0.1s;
     user-select: none;
     -webkit-user-drag: none;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 39.3px;
     background-color: transparent;
     border: none;
     background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
 }
 
+#next:hover{
+    border-width: 5px 5px 0px 0px;
+}
+
+#menu:hover #menu-line{
+    height: 5px;
+}
+
+#back:hover{
+    border-width: 5px 5px 0px 0px;
+}
+
+#menu-line{
+    transition: 0.2s ease-in-out;
+
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    border-radius: 2px;
+}
 
 #education-page{
     position: relative;
@@ -525,10 +564,7 @@ Mobile view
         text-align: center;
     }
 
-    
-    #title{
-        height: 150px;
-    }
+
     #content-page{
         overflow: scroll;
         text-align: center;
@@ -856,3 +892,4 @@ Mobile view
 *::-webkit-scrollbar-thumb:hover {
     background: #555; 
 }
+

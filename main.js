@@ -55,16 +55,6 @@ function slide_change(p1, p2) {
   page2.style.display = "block";
   page2.style.opacity = 1;
 
-
-  if (p2 ==0){
-    console.log("entered")
-    document.getElementById("screen").style.height = "90%";
-  }
-  else{
-    document.getElementById("screen").style.height = "67%";
-  }
-
-
   currentPage = p2;
 
 }
