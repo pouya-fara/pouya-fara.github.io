@@ -112,12 +112,12 @@ document.querySelectorAll('.project-head').forEach(function (element, index) {
         descriptions[index].style.display = "block";
         setTimeout(()=>{descriptions[index].style.opacity = 1;}, 0)
         
-        up[index].style.transform = "rotate(135deg)"
+        up[index].style.transform = "rotate(-45deg)"
 
       }
       else{
         descriptions[index].style.opacity = 0;
-        up[index].style.transform = "rotate(-45deg)"
+        up[index].style.transform = "rotate(135deg)"
         setTimeout(()=>{descriptions[index].style.display = "none";}, 400)
       }
     }

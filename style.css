@@ -891,7 +891,7 @@ Mobile view
     border-color: white;
     border-radius: 4%;
     border-style: solid;
-    transform: rotate(-45deg);
+    transform: rotate(135deg);
     margin-top: 25px;
     margin-bottom: 25px;
 }
