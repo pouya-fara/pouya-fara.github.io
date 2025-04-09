@@ -112,12 +112,7 @@ section{
 }
 
 
-@keyframes shadow {
-    0%{
-        margin-top: -20px;
-    }
 
-}
 
 
 
@@ -138,7 +133,6 @@ section{
 }
 
 #content-page ul{
-    animation: shadow 0.7s ;
     text-align: center;
     list-style: none;
     display: flex;
@@ -532,6 +526,11 @@ h2:hover + .list-devider{
     
 }
 
+.page-title{
+    opacity: 0;
+    transition: 0.7s;
+}
+
 #skills-list{
     display: flex;
     text-align: center;
@@ -657,7 +656,7 @@ Mobile view
     }
     
     .page-title{
-        font-size: 30px;
+        font-size: 32px;
     }
 
     #title{

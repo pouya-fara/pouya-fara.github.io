@@ -21,6 +21,28 @@ let currentPage = 0; // Tracks the current page
 let pageList = ["home", "content", "about", "education", "awards", "skills", "projects", "contact"];
 let pageTitle = ["", "Table of Contents", "About Me", "Education", "Awards & Scholarships", "Technical Skills", "Projects", "Contact"];
 
+// Table of Contents animation
+
+function delay(ms){
+  return new Promise(resolve => setTimeout(function(){resolve()}, ms))
+}
+
+async function contentAnimation(enter){
+  if (enter == true){
+    let pageTitle = document.querySelectorAll(".page-title")
+    await delay(20)
+    for (let i =0;i<pageTitle.length;i++){
+      pageTitle[i].style.opacity = "1";
+      await delay(20)
+    }
+  }
+  else{
+    let pageTitle = document.querySelectorAll(".page-title")
+    for (let i =0;i<pageTitle.length;i++){
+      pageTitle[i].style.opacity = "0";
+    }
+  }
+}
 // Function to change the title of the page
 
 
@@ -57,6 +79,8 @@ function slide_change(p1, p2) {
   page2.style.opacity = 1;
 
   currentPage = p2;
+  if (p2 == 1){contentAnimation(true)}
+  else if(p1 ==1){contentAnimation(false)}
 
 }
 
