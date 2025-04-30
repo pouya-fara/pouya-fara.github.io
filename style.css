@@ -72,7 +72,7 @@ section{
     height: 100vh;
 }
 .menu-wrapper {
-    width: 100px;
+    width: 170px;
     margin-left: auto;
     z-index: 10;
     position: fixed;
@@ -443,8 +443,9 @@ section{
 #about-story-container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     height: 100vh;
+    margin-top: 50px;
 }
 
 #about-story-title{
@@ -1122,14 +1123,24 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
+    .skill-element{
+        width: 150px;
+    }
     .skill-group{
-        margin: auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+
+    }
+    .skill-group-elements{
+        margin-top: 50px;
     }
     .skill-group-title{
         width: 150px;
         text-align: center;
         margin: auto;
     }
+
     .skill-element img{
         animation: skills 0.5s;
 
@@ -1220,8 +1231,10 @@ Mobile view
     }
 
     .skill-group-elements {
+
         flex-wrap: wrap;
         justify-content: center;
+
     }
 
     #project-container {
@@ -1350,12 +1363,6 @@ Mobile view
     #skills-list {
         width: 95%;
     }
-
-    .skill-group-elements {
-        flex-direction: column;
-        align-items: center;
-    }
-
 
     #project-container {
         grid-template-columns: 1fr;
