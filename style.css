@@ -680,8 +680,9 @@ section{
 
 .skill-group-title{
     font-family: "Poppins", sans-serif;
+}
+.skill-group-title h1{
     font-weight: 300;
-    text-align: start;
 }
 
 .skill-group-elements{
@@ -1138,15 +1139,18 @@ Mobile view
         margin-top: 50px;
     }
     .skill-group-title{
-        width: 150px;
-        text-align: center;
         margin: auto;
+        text-align: center;
+    }
+    .skill-group-title h1{
+        font-size: 35px;
+
     }
 
     .skill-element img{
         animation: skills 0.5s;
 
-        height: 40px;
+        height: 55px;
     }
     .project-card{
         width: auto;
