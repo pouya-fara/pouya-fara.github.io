@@ -753,8 +753,8 @@ section{
 #contact-list{
     display: flex;
     margin: auto;
-    height: 80vh;
-    width: 60%;
+    height: 65vh;
+    width: 45%;
     flex-direction: column;
     justify-content: space-between;
 }
@@ -788,7 +788,7 @@ section{
 
 
 #contact-list img{
-    width: 80px;
+    width: 60px;
     height: fit-content;
     
 }
@@ -1123,6 +1123,8 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
+
+
     .skill-element{
         width: 150px;
     }
@@ -1150,8 +1152,8 @@ Mobile view
         width: auto;
     }
     #contact-list{
-        height: 70vh;
-        width: 85%;
+        height: 55vh;
+        width: 80%;
     }
 
     .contact-title{
