@@ -1193,7 +1193,6 @@ Mobile view
         margin-right: 0;
     }
     #about-story-title h1{
-        margin-bottom: 100px;
         text-align: center;
     }
     .mobile-content{
@@ -1308,7 +1307,7 @@ Mobile view
         font-size: 23px;
     }
     #about-text h1{
-        font-size: 40px;
+        font-size: 30px;
     }
     #about-story-title{
         text-align: left;
@@ -1319,7 +1318,7 @@ Mobile view
     }
     
     .text {
-        font-size: 18px;
+        font-size: 13px;
         line-height: 22px;
         font-weight: 200;
         line-height: 30px;
