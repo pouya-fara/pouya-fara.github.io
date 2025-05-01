@@ -381,9 +381,9 @@ section{
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     height: 100vh;
-    overflow-y: hidden;
+    overflow-y: auto;
 }
 
 #about-picture{
@@ -403,7 +403,6 @@ section{
     justify-content: center;
     flex-direction: column;
     text-align: start;
-    height: 100vh;
 }
 
 
@@ -765,14 +764,16 @@ section{
 
 .contact-element{
     color: black;
-    margin-right: auto;
+    margin-left: auto;
     transition: 0.5s;
     text-align: start;
     animation: contact-animation 1s;
-    display: flex;
-    flex-direction: row;
-    justify-content: start;
+    display: inline-block;
+    width: 100%;
+}
 
+.contact-list div a{
+    width: 100%;
 }
 
 .contact-title{
@@ -801,6 +802,7 @@ section{
     font-size: 27px;
     font-weight: 300;
     margin-left: auto;
+    text-align: end;
 }
 
 
@@ -1132,6 +1134,19 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
+    #about-story .text-container {
+        flex-direction: column;
+        text-align: center;
+        overflow-y: auto;
+    }
+
+    #content-page{
+        overflow-y: auto;
+    }
+    #about-content{
+        overflow-y: auto;
+        
+    }
     .story-card{
         margin-top: 50px;
     }
@@ -1166,15 +1181,14 @@ Mobile view
         width: auto;
     }
     #contact-list{
-        height: 55vh;
         width: 80%;
     }
 
     .contact-title{
-        font-size: 25px;
+        font-size: 20px;
     }
     #contact-list h3{
-        font-size: 22px;
+        font-size: 17px;
     }
     .project-head div h1{
         font-size: 17px;
@@ -1318,10 +1332,7 @@ Mobile view
     }
     
     .text {
-        font-size: 13px;
-        line-height: 22px;
         font-weight: 200;
-        line-height: 30px;
     }
 
 
@@ -1363,10 +1374,6 @@ Mobile view
         width: 250px;
     }
 
-    #about-story .text-container {
-        flex-direction: column;
-        text-align: center;
-    }
 
     #education-card {
         flex-direction: column;
