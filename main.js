@@ -50,6 +50,9 @@ async function contentAnimation(enter){
 
 // Function to change pages
 function slide_change(p1, p2) {
+  // Reset to the first content of the slide
+  resetContent()
+
   // Hide the current page
   let page1 = document.querySelectorAll('.content')[p1];
   page1.style.opacity = 0;
@@ -181,7 +184,6 @@ function nextSlide() {
     let content = document.querySelectorAll('.content')[currentPage];
     let availableMobileElements = content.querySelectorAll('.mobile-content').length-1
     if (countedMobileElements>=availableMobileElements){
-      resetContent();
       if (currentPage < pageLength-1) {
         slide_change(currentPage, currentPage + 1);
         showFirstContent()
@@ -218,7 +220,6 @@ function lastSlide() {
 
     let content = document.querySelectorAll('.content')[currentPage];
     if (countedMobileElements<=0){
-      resetContent()
       if (currentPage >= 1) {
         slide_change(currentPage, currentPage - 1);
         showLastContent()

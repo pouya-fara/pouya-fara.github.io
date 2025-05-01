@@ -310,7 +310,7 @@ section{
     color: white;
     animation: about 1.5s;
     overflow-y: hidden;
-    line-height: 30px;
+    line-height: 20px;
 }
 .text-container{
     display: flex;
@@ -432,8 +432,7 @@ section{
 .card-container{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
+    justify-content: center;
 }
 #about-story .text-container{
     display: flex;
@@ -443,9 +442,8 @@ section{
 #about-story-container{
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     height: 100vh;
-    margin-top: 50px;
 }
 
 #about-story-title{
@@ -921,7 +919,11 @@ section{
 }
 
 
-
+.award{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 .award h2{
     font-family: "Poppins", sans-serif;
@@ -932,15 +934,16 @@ section{
 .award h3{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
-    margin-top: 5px;
+    margin-top: 15px;
     color: white;
 }
 
 .award p{
+    padding: 15px;
     margin-top: 30px;
     color: white;
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     text-align: start;
     font-size: 20px;
 }
@@ -1113,6 +1116,11 @@ section{
     opacity: 1;
 }
 
+.story-card .text{
+    margin-top: 15px;
+    text-align: start;
+    padding: 5px;
+}
 
 
 /*
@@ -1124,7 +1132,9 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
-
+    .story-card{
+        margin-top: 50px;
+    }
 
     .skill-element{
         width: 150px;
@@ -1178,11 +1188,7 @@ Mobile view
         margin-left: auto;
         margin-right: auto;
     }
-    .story-card{
-        height: 50%;
-        margin-bottom: 50px;
-    }
-    
+
     #about-story-title{
         margin-right: 0;
     }
@@ -1204,10 +1210,6 @@ Mobile view
 
     .title h1, .beginning-text h1, .large-title {
         font-size: 50px;
-    }
-
-    .text {
-        font-size: 16px;
     }
 
 
@@ -1255,7 +1257,10 @@ Mobile view
         margin-bottom: 200px;
     }
     #awards-container .award h2{
-        font-size: 20px;
+        font-size: 30px;
+    }
+    .award p{
+        font-size: 18px;
     }
     #awards-container .award h3{
         font-weight: 200;
@@ -1300,7 +1305,7 @@ Mobile view
         margin-bottom: 200px;
     }
     .sub-heading{
-        font-size: 15px;
+        font-size: 23px;
     }
     #about-text h1{
         font-size: 40px;
@@ -1314,8 +1319,10 @@ Mobile view
     }
     
     .text {
-        font-size: 13px;
-        line-height: 20px;
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 200;
+        line-height: 30px;
     }
 
 
