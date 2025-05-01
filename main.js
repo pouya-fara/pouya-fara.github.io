@@ -51,7 +51,9 @@ async function contentAnimation(enter){
 // Function to change pages
 function slide_change(p1, p2) {
   // Reset to the first content of the slide
-  resetContent()
+  if (mobileWidthActivatation){
+    resetContent()
+  }
 
   // Hide the current page
   let page1 = document.querySelectorAll('.content')[p1];
