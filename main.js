@@ -1,16 +1,11 @@
-
+// set full‐viewport heights
 document.querySelector("html").style.height = window.innerHeight + "px";
 document.querySelector("body").style.height = window.innerHeight + "px";
 document.querySelector("#loading").style.height = window.innerHeight + "px";
 document.querySelector("#web-content").style.height = window.innerHeight + "px";
 document.querySelector("#menu-list").style.height = window.innerHeight + "px";
 
-
-
-
-
-
-// pre loading
+// preloading
 window.onload = function(){
   let preloader = document.getElementById("loading");
   preloader.style.opacity = 1;
@@ -18,334 +13,222 @@ window.onload = function(){
 
   let webContent = document.getElementById("web-content");
   webContent.style.display = "flex";
-}
+};
 
+let currentPage = 0; 
+let pageLength = document.querySelectorAll('.content').length;
 
-let currentPage = 0; // Tracks the current page
-
-let pageLength = document.querySelectorAll('.content').length
-
-// Table of Contents animation
-
+// helper for delaying
 function delay(ms){
-  return new Promise(resolve => setTimeout(function(){resolve()}, ms))
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// animate menu titles
 async function contentAnimation(enter){
-  if (enter == true){
-    let pageTitle = document.querySelectorAll(".page-title")
-    await delay(20)
-    for (let i =0;i<pageTitle.length;i++){
-      pageTitle[i].style.opacity = "1";
-      await delay(20)
+  let titles = document.querySelectorAll(".page-title");
+  if (enter) {
+    await delay(20);
+    for (let t of titles) {
+      t.style.opacity = "1";
+      await delay(20);
     }
-  }
-  else{
-    let pageTitle = document.querySelectorAll(".page-title")
-    for (let i =0;i<pageTitle.length;i++){
-      pageTitle[i].style.opacity = "0";
-    }
+  } else {
+    titles.forEach(t => t.style.opacity = "0");
   }
 }
 
-// Function to change pages
+// slide transition
 function slide_change(p1, p2) {
-  // Reset to the first content of the slide
-  if (mobileWidthActivatation){
-    resetContent()
-  }
+  if (mobileWidthActivatation) resetContent();
 
-  // Hide the current page
+  // hide old
   let page1 = document.querySelectorAll('.content')[p1];
   page1.style.opacity = 0;
   page1.style.display = "none";
 
-  // Show the new page
+  // show new
   let page2 = document.querySelectorAll('.content')[p2];
   page2.style.display = "block";
   page2.style.opacity = 1;
 
   currentPage = p2;
-  if (p2 == 1){contentAnimation(true)}
-  else if(p1 ==1){contentAnimation(false)}
-
+  if (p2 === 1) contentAnimation(true);
+  else if (p1 === 1) contentAnimation(false);
 }
 
-
+// dynamic date counters
 function updateDates(){
-  let date1 = new Date('2023-09-06');
-  let date2 = new Date();
-  
-  let diffTime = Math.abs(date2 - date1);
-  let diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
-  document.getElementById("starting-time").innerText = Math.round(diffYears)
-  
-  // Graduation
+  // starting-time
+  let start = new Date('2023-09-06');
+  let now = new Date();
+  let diffYears = Math.abs(now - start) / (1000 * 60 * 60 * 24 * 365.25);
+  document.getElementById("starting-time").innerText = Math.round(diffYears);
 
-  date1 = new Date();
-  date2 = new Date('2027-06-01');
-  
-  diffTime = Math.abs(date2 - date1);
-  let years = date2.getFullYear() - date1.getFullYear();
-  let months = date2.getMonth() - date1.getMonth();
-  
+  // ending-time
+  let grad = new Date('2027-06-01');
+  let years = grad.getFullYear() - now.getFullYear();
+  let months = grad.getMonth() - now.getMonth();
   if (months < 0) {
     years--;
     months += 12;
   }
-  document.getElementById("ending-time-year").innerText = Math.round(years)
-  document.getElementById("ending-time-month").innerText = Math.round(months)
-
-
-
+  document.getElementById("ending-time-year").innerText = Math.round(years);
+  document.getElementById("ending-time-month").innerText = Math.round(months);
 }
-
-
 
 setInterval(updateDates, 1000);
 
-
-
-let mobileWidthActivatation = window.innerWidth<900;
-
-
+let mobileWidthActivatation = window.innerWidth < 900;
 let countedMobileElements = 0;
 
+// mobile‐only per‐slide content cycling
 function mobileContentChange(next){
   let content = document.querySelectorAll('.content')[currentPage];
-  let numberOfElements = content.querySelectorAll('.mobile-content').length
-  if (numberOfElements>0){
-    let currentElement = content.querySelectorAll('.mobile-content')[countedMobileElements]
-    currentElement.style.opacity = 0;
-    currentElement.style.display = "none";
+  let items = content.querySelectorAll('.mobile-content');
+  if (!items.length) return;
 
-    if (next){
-      let nextElement = content.querySelectorAll('.mobile-content')[countedMobileElements+1]
-        
-      nextElement.style.display = "block";
-      nextElement.style.opacity = 1;
-      countedMobileElements+=1;  
-    }
-  
-    else{
-      let lastElement = content.querySelectorAll('.mobile-content')[countedMobileElements-1]
-        
-      lastElement.style.display = "block";
-      lastElement.style.opacity = 1;
-      countedMobileElements-=1;  
-    }  
-  }
+  let curr = items[countedMobileElements];
+  curr.style.opacity = 0;
+  curr.style.display = "none";
+
+  countedMobileElements += next ? 1 : -1;
+  let target = items[countedMobileElements];
+  target.style.display = "block";
+  target.style.opacity = 1;
 }
 
-
-
 function showFirstContent(){
-  let content = document.querySelectorAll('.content')[currentPage];
-  let numberOfElements = content.querySelectorAll('.mobile-content').length
-  if (numberOfElements>0){
-
-    let firstElement = content.querySelectorAll('.mobile-content')[0]
-
-    firstElement.style.display = "block";
-    firstElement.style.opacity = 1;
-    countedMobileElements=0
-  
+  let items = document.querySelectorAll('.content')[currentPage]
+                       .querySelectorAll('.mobile-content');
+  if (items.length) {
+    items[0].style.display = "block";
+    items[0].style.opacity = 1;
+    countedMobileElements = 0;
   }
 }
 
 function showLastContent(){
-  let content = document.querySelectorAll('.content')[currentPage];
-  let numberOfElements = content.querySelectorAll('.mobile-content').length
-  if (numberOfElements>0){
-    let lastElement = content.querySelectorAll('.mobile-content')[numberOfElements-1]
-    lastElement.style.display = "block";
-    lastElement.style.opacity = 1;
-  
+  let items = document.querySelectorAll('.content')[currentPage]
+                       .querySelectorAll('.mobile-content');
+  if (items.length) {
+    let last = items[items.length - 1];
+    last.style.display = "block";
+    last.style.opacity = 1;
+    countedMobileElements = items.length - 1;
   }
-  countedMobileElements=numberOfElements-1
 }
-
 
 function resetContent(){
-  let content = document.querySelectorAll('.content')[currentPage];
-  let numberOfElements = content.querySelectorAll('.mobile-content').length
-  if (numberOfElements>0){
-    let currentElement = content.querySelectorAll('.mobile-content')[countedMobileElements]
-    currentElement.style.display = "none";
-    currentElement.style.opacity = 0;
-    countedMobileElements = 0
-  
-  }
-
+  let items = document.querySelectorAll('.content')[currentPage]
+                       .querySelectorAll('.mobile-content');
+  if (!items.length) return;
+  let curr = items[countedMobileElements];
+  curr.style.opacity = 0;
+  curr.style.display = "none";
+  countedMobileElements = 0;
 }
 
-// Next and previous slide functions
+// next/prev slide
 function nextSlide() {
-
-  if (mobileWidthActivatation){
-    let content = document.querySelectorAll('.content')[currentPage];
-    let availableMobileElements = content.querySelectorAll('.mobile-content').length-1
-    if (countedMobileElements>=availableMobileElements){
-      if (currentPage < pageLength-1) {
-        slide_change(currentPage, currentPage + 1);
-        showFirstContent()
-      } else {
-        slide_change(currentPage, 0);
-        showFirstContent()
-      }
-    }
-    else{
-      mobileContentChange(true)
-    }
-
-  }
-  else{
-    if (currentPage < pageLength-1) {
-      slide_change(currentPage, currentPage + 1);
+  if (mobileWidthActivatation) {
+    let items = document.querySelectorAll('.content')[currentPage]
+                         .querySelectorAll('.mobile-content');
+    if (countedMobileElements >= items.length - 1) {
+      slide_change(currentPage, currentPage < pageLength - 1 ? currentPage + 1 : 0);
+      showFirstContent();
     } else {
-      slide_change(currentPage, 0);
+      mobileContentChange(true);
     }
-
+  } else {
+    slide_change(currentPage, currentPage < pageLength - 1 ? currentPage + 1 : 0);
   }
-
-
-
-
-
-
 }
 
 function lastSlide() {
-
-
-  if (mobileWidthActivatation){
-
-    let content = document.querySelectorAll('.content')[currentPage];
-    if (countedMobileElements<=0){
-      if (currentPage >= 1) {
-        slide_change(currentPage, currentPage - 1);
-        showLastContent()
-      } else {
-        slide_change(currentPage, pageLength-1);
-        showLastContent()
-      }  
-    }
-    else{
-      mobileContentChange(false)
-  
-    }
-  
-  }
-
-  else{
-    if (currentPage >= 1) {
-      slide_change(currentPage, currentPage - 1);
+  if (mobileWidthActivatation) {
+    let items = document.querySelectorAll('.content')[currentPage]
+                         .querySelectorAll('.mobile-content');
+    if (countedMobileElements <= 0) {
+      slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);
+      showLastContent();
     } else {
-      slide_change(currentPage, pageLength-1);
-    }  
-
+      mobileContentChange(false);
+    }
+  } else {
+    slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);
   }
 }
 
-
-// Touch-based swipe navigation
-let startX = 0,
-  currentX = 0,
-  startY = 0,
-  currentY = 0;
-
-document.body.addEventListener("touchstart", (event) => {
-  startX = event.touches[0].clientX;
-  startY = event.touches[0].clientY;
+// swipe detection
+let startX = 0, currentX = 0, startY = 0, currentY = 0;
+document.body.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
 });
-
-document.body.addEventListener("touchmove", (event) => {
-  currentX = event.touches[0].clientX;
-  currentY = event.touches[0].clientY;
+document.body.addEventListener("touchmove", e => {
+  currentX = e.touches[0].clientX;
+  currentY = e.touches[0].clientY;
 });
-
 document.body.addEventListener("touchend", () => {
-  let endTarget = 15;
-  let yFlexibility = 50;
-
-  // Detect swipe direction only if there's minimal vertical movement
-  if (currentX !== 0 && Math.abs(currentY - startY) < yFlexibility) {
-    if (currentX < startX - endTarget) {
-      nextSlide(); // Swipe left -> Next slide
-    } else if (currentX > startX + endTarget) {
-      lastSlide(); // Swipe right -> Previous slide
-    }
-
-    // Reset touch positions
-    startX = 0;
-    currentX = 0;
-    currentY = 0;
-    startY = 0;
+  let threshold = 15, verticalTol = 50;
+  if (Math.abs(currentY - startY) < verticalTol) {
+    if (currentX < startX - threshold) nextSlide();
+    else if (currentX > startX + threshold) lastSlide();
   }
+  startX = currentX = startY = currentY = 0;
 });
 
-// Keyboard controls for navigation
+// keyboard nav
 document.onkeyup = function (e) {
   let key = e.which || e.keyCode;
-  if (key === 39 || key==68) {
-    nextSlide(); // Right arrow -> Next slide
-  } else if (key === 37 || key==65) {
-    lastSlide(); // Left arrow -> Previous slide
-  } else if (key == 13) {
-    // Enter -> Go to main menu (if not already there)
-    if (currentPage !== 1) {
-      slide_change(currentPage, 1);
-    }
-  }
+  if (key === 39 || key === 68) nextSlide();
+  else if (key === 37 || key === 65) lastSlide();
+  else if (key === 13 && currentPage !== 1) slide_change(currentPage, 1);
 };
 
-let currentSide = '';
-
-if (window.innerWidth>900){
-  
-
-document.addEventListener('mousemove', (event) => {
-  const screenWidth = window.innerWidth;
-  const mouseX = event.clientX;
-
-  if (mouseX < screenWidth / 2) {
-    // Mouse is on the left side
-    document.body.classList.add('cursor-left');
-    document.body.classList.remove('cursor-right');
-  } else {
-    // Mouse is on the right side
-    document.body.classList.add('cursor-right');
-    document.body.classList.remove('cursor-left');
-  }
-});
-
-document.addEventListener('mousemove', (event) => {
-  const screenWidth = window.innerWidth;
-  const mouseX = event.clientX;
-  currentSide = mouseX < screenWidth / 2 ? 'left' : 'right';
-});
-
+// left/right hover cursor
+if (window.innerWidth > 900) {
+  document.addEventListener('mousemove', (event) => {
+    let mouseX = event.clientX;
+    let half = window.innerWidth / 2;
+    if (mouseX < half) {
+      document.body.classList.add('cursor-left');
+      document.body.classList.remove('cursor-right');
+      currentSide = 'left';
+    } else {
+      document.body.classList.add('cursor-right');
+      document.body.classList.remove('cursor-left');
+      currentSide = 'right';
+    }
+  });
 }
 
+const sectionsDic = {
+  Home: 0,
+  Contents: 1,
+  About: 2,
+  Education: 5,
+  Awards: 7,
+  Skills: 9,
+  Projects: 13,
+  Contact: 15
+};
 
-sectionsDic = {Home:0, Contents:1, About:2, Education:5, Awards:7, Skills:9, Projects:13, Contact:15}
-
-
+// UPDATED click handler:
 document.addEventListener('click', (event) => {
-  const clickedElement = event.target;
+  if (event.target.closest('a')) {
+    return;
+  }
 
-  // Check if the clicked element (or its parent) has the class 'content-button'
-  const contentButton = clickedElement.closest('.content-button');
-
+  const contentButton = event.target.closest('.content-button');
   if (contentButton) {
-    const text = contentButton.querySelector('h2').textContent.trim();
-    slide_change(currentPage, sectionsDic[text]);
-  }
-  else {
-    if (currentSide === 'left') {
-      lastSlide();
-    } else if (currentSide === 'right') {
-      nextSlide();
+    const label = contentButton.querySelector('h2')?.textContent.trim();
+    if (label && sectionsDic.hasOwnProperty(label)) {
+      slide_change(currentPage, sectionsDic[label]);
     }
+    return;
   }
+
+  if (currentSide === 'left') lastSlide();
+  else if (currentSide === 'right') nextSlide();
 });
