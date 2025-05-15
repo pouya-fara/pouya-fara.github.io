@@ -137,7 +137,6 @@ section{
     background-color: #555;
   }
   
-  /* Show menu on hover */
 .menu-wrapper:hover #menu-list {
     width: 100%;
 }
@@ -194,10 +193,10 @@ section{
     transform: translate(-100%, -50%);
     background: radial-gradient(
       circle at 50% 50%, 
-      #0066cc 0%,    /* Brighter deep blue center */
-      #004c99 30%,   /* Darker but still vivid */
-      #003366 60%,   /* Dark navy blue */
-      #001a33 85%    /* Deep dark blue at edges */
+      #0066cc 0%,    
+      #004c99 30%,   
+      #003366 60%,   
+      #001a33 85%    
     );
     border-radius: 60% 40% 65% 35% / 50% 55% 45% 50%;
     filter: blur(80px);
@@ -332,10 +331,10 @@ section{
 #about-areola{
     background: radial-gradient(
         circle at 50% 50%, 
-        #0066cc 0%,    /* Brighter deep blue center */
-        #360269 30%,   /* Darker but still vivid */
-        #003366 60%,   /* Dark navy blue */
-        #001a33 85%    /* Deep dark blue at edges */
+        #0066cc 0%,    
+        #360269 30%,   
+        #003366 60%,   
+        #001a33 85%    
       );
     transform: translate(-50%, 3%);
     width: 1500px;
@@ -344,10 +343,10 @@ section{
 #about-areola-1{
     background: radial-gradient(
         circle at 50% 50%, 
-        #0066cc 0%,    /* Brighter deep blue center */
-        #360269 30%,   /* Darker but still vivid */
-        #003366 60%,   /* Dark navy blue */
-        #001a33 85%    /* Deep dark blue at edges */
+        #0066cc 0%,    
+        #360269 30%,   
+        #003366 60%,
+        #001a33 85%    
       );
     transform: translate(-15%, -17%);
     width: 700px;
@@ -524,10 +523,10 @@ section{
 #education-areola{
     background: radial-gradient(
         circle at 50% 50%, 
-        #0066cc 0%,    /* Brighter deep blue center */
-        #360269 30%,   /* Darker but still vivid */
-        #003366 60%,   /* Dark navy blue */
-        #001a33 85%    /* Deep dark blue at edges */
+        #0066cc 0%,   
+        #360269 30%,  
+        #003366 60%,   
+        #001a33 85%    
       );
     transform: translate(0vw, -87vh);
     width: 800px;
@@ -857,10 +856,10 @@ section{
 #awards-areola{
     background: radial-gradient(
         circle at 50% 50%,
-        #1a3a8c 0%,      /* medium dark blue */
-        #1f469f 30%,     /* deep blue */
-        #04203f 60%,     /* very dark blue */
-        #00121e 85%      /* almost black blue */
+        #1a3a8c 0%,      
+        #1f469f 30%,     
+        #04203f 60%,     
+        #00121e 85%      
       );
     transform: translate(-20vw, 0vh);
     width: 1500px;
@@ -1356,7 +1355,6 @@ Mobile view
         height: 24px;
     }
 
-    /* KEEP the original menu hover behavior, only make the menu icon and text smaller */
     #menu-list li h2 {
         font-size: 18px;
     }
