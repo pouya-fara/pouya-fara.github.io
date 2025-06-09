@@ -1,0 +1,1361 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: none;
+    user-select: none;
+    color: white;
+    text-decoration: none;
+}
+
+
+#loading{
+    background-color: black;
+    text-align: center;
+    opacity: 1;
+    transition: 0.3s;
+    height: 100vh;
+}
+
+#loading h1{
+    margin-top: 250px;
+    color: white;
+    font-size: 90px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+
+}
+
+
+html body{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+
+}
+
+/*Change the cursor*/
+body {
+    cursor: auto; 
+}
+  
+  body.cursor-left {
+    cursor: url('images/icons8-chevron-left-50.png') 16 16, auto; /* Left side cursor */
+}
+  
+  body.cursor-right {
+    cursor: url('images/icons8-chevron-right-50.png') 16 16, auto; /* Right side cursor */
+}
+
+
+
+@keyframes load {
+    0%{opacity: 0;}
+}
+
+#web-content{
+    animation: load 2s;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    margin-bottom: auto;
+    transition: 0.3s ease-in-out;
+    z-index: 2;
+    height: 100vh;
+}
+.menu-wrapper {
+    width: 170px;
+    margin-left: auto;
+    z-index: 10;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    height: 10%;
+}
+#menu-icon {
+    transition: 0.7s;
+    padding-top: 25px;
+    margin-right: 25px;
+    width: 35px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+#menu-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+
+  }
+  
+  #menu-list {
+    transition: 0.7s;
+    position: relative;
+    list-style: none;
+    background: rgba(0, 0, 0, 0.8);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 10px 0;
+    width: 0;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+  }
+  
+  #menu-list li {
+    text-align: center;
+  }
+  
+  #menu-list li h2 {
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  
+  #menu-list li h2:hover {
+    background-color: #555;
+  }
+  
+.menu-wrapper:hover #menu-list {
+    width: 100%;
+}
+
+.menu-wrapper:hover #menu-icon{
+    opacity: 0;
+}
+
+
+
+
+#home-page{
+    position: relative;
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+
+#name-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: start;
+}
+
+
+#name{
+    transition: 0.7s;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 95px;
+}
+
+#home-title{
+    transition: 0.7s;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    margin-top: 20px;
+}
+
+.halo {
+    z-index: -5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1500px;
+    height: 1500px;
+    transform: translate(-100%, -50%);
+    background: radial-gradient(
+      circle at 50% 50%, 
+      #0066cc 0%,    
+      #004c99 30%,   
+      #003366 60%,   
+      #001a33 85%    
+    );
+    border-radius: 60% 40% 65% 35% / 50% 55% 45% 50%;
+    filter: blur(80px);
+    opacity: 0.7;
+    transition: 1s;
+    opacity: 0;
+    animation: halo-animation 1s forwards;
+}
+
+@keyframes halo-animation {
+    100%{
+        opacity: 1;
+    }
+}
+
+
+#content-page{
+    display: none;
+    opacity: 0;
+}
+
+.title h1{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 60px;
+    justify-content: start;
+    margin-left: 0px;
+    width: 80%;
+    margin-top: 20px;
+}
+
+#content-halo{
+    transform: translate(10%, -50%);
+
+}
+#menu li{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu{
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    text-align: start;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.7s ;
+    
+}
+.page-title{
+    transition: 0.7s;
+    height: 72px;
+    opacity: 0;
+    width: fit-content;
+}
+
+.page-title h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 25px;
+    color: white;
+
+}
+#menu li p{
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+
+
+.break-line{
+    margin-top: 10px;
+    background-color: white;
+    width: 100%;
+    height: 1px;
+    margin-bottom: 25px;
+}
+
+
+
+
+
+@keyframes about {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+.content{
+    overflow: hidden;
+    height:100%;
+    width: 90%;
+    display: none;
+}
+.text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    color: white;
+    animation: about 1.5s;
+    overflow-y: hidden;
+    line-height: 20px;
+}
+.text-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+#about-page{
+    opacity: 0;
+    display: none;
+    text-align: center;
+    width: 90%;
+}
+
+
+#about-halo{
+    background: radial-gradient(
+        circle at 50% 50%, 
+        #0066cc 0%,    
+        #360269 30%,   
+        #003366 60%,   
+        #001a33 85%    
+      );
+    transform: translate(-50%, 3%);
+    width: 1500px;
+    height: 1500px;
+}
+#about-halo-1{
+    background: radial-gradient(
+        circle at 50% 50%, 
+        #0066cc 0%,    
+        #360269 30%,   
+        #003366 60%,
+        #001a33 85%    
+      );
+    transform: translate(-15%, -17%);
+    width: 700px;
+    height: 700px;
+
+}
+.beginning-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+}
+
+.beginning-text h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 120px;
+    color: white;
+    margin-bottom: 80px;
+
+}
+
+.large-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 80px;
+    color: white;
+
+}
+
+#about-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+#about-picture{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    height: 100vh;
+}
+
+#about-picture img{
+    width: 550px;
+}
+
+#about-text{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: start;
+}
+
+
+.sub-heading{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+
+}
+
+.card{
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    padding: 20px;
+    border-radius: 20px;
+    animation: card-animation 2s ease;
+}
+
+
+@keyframes card-animation {
+    0%{opacity: 0;}
+}
+
+
+.card-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#about-story .text-container{
+    display: flex;
+    flex-direction: row;
+}
+
+#about-story-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+}
+
+#about-story-title{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+#about-text h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 60px;
+    color: white;
+}
+
+
+
+
+.movement li{
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: 0.5s;
+
+}
+
+
+
+#screen{
+    flex: 1;
+    width: 100%;
+    justify-content: center;
+    justify-items: center;
+    overflow-x: hidden;
+}
+
+
+
+
+#menu-line{
+    transition: 0.2s ease-in-out;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+    border-radius: 2px;
+}
+
+#education-page{
+    position: relative;
+    display: none;
+    width: 100%;
+}
+
+#education{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    overflow-y: hidden;
+}
+
+
+@keyframes university-text {
+    0%{
+        margin-top: 35px;
+    }
+
+}
+
+#education-halo{
+    background: radial-gradient(
+        circle at 50% 50%, 
+        #0066cc 0%,   
+        #360269 30%,  
+        #003366 60%,   
+        #001a33 85%    
+      );
+    transform: translate(0vw, -87vh);
+    width: 800px;
+    height: 800px;
+
+}
+
+.upper-right{
+    flex-direction: row;
+    justify-content: end;
+}
+.upper-right h1{
+    margin-top: 80px;
+}
+.education-text{
+    position: relative;
+    text-align: start;
+    color: white;
+    text-shadow: 2px 2px black;
+    text-rendering: geometricPrecision;
+    font-family: "Poppins", sans-serif;
+    margin-left: 50px;
+    width: 80%;
+}
+
+#education-halo-1{
+    background: radial-gradient(
+        circle at 50% 50%, 
+        #0976e4 0%,
+        #470a84 30%,   
+        #083766 60%,  
+        #001a33 85%    
+      );
+    transform: translate(-50vw, -200vh);
+    width: 1500px;
+    height: 1500px;
+}
+
+#york-logo{
+    width: 200px;
+    height: 200px;
+}
+
+#education-card{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    justify-items: center;
+    text-align: start;
+}
+#logo-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.education-text h1{
+    font-size: 55px;
+    animation: university-text 1s;
+    font-weight: 400;
+}
+
+.education-text h2{
+    font-size: 20px;
+    animation: university-text 1s;
+    text-align: start;
+    font-weight: 200;
+}
+
+
+@keyframes university {
+    0%{
+        opacity: 0;
+    
+    }
+
+}
+
+.education-text h4{
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: 200;
+    text-align: end;
+}
+
+#university{
+    margin-top: 40px;
+    color: red;
+    text-shadow: 2px 2px black;
+    transition: 0.7s;
+    animation: university 0.7s;
+    font-size: 45px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+#university:hover{
+    color: white;
+
+}
+
+
+.skill-element{
+    scroll-snap-align: start;
+    text-align: center;
+    width: 200px;
+}
+
+
+@keyframes skills {
+    0%{
+        height: 0;
+    }
+}
+
+
+
+.skill-element img{
+    height: 55px;
+    margin-top: 50px;
+    border-radius: 100%;
+    animation: skills 0.5s;
+    background-color: white;
+    margin-top: auto;
+}
+
+.skill-element h1{
+    color: white;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: white;
+    text-shadow: 3px 3px black;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.skill-group{
+    display: block;
+    text-align: start;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.skill-group-title{
+    font-family: "Poppins", sans-serif;
+}
+.skill-group-title h1{
+    font-weight: 300;
+}
+
+.skill-group-elements{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-top: 30px;
+}
+
+.academic{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.academic-card{
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+}
+
+
+.academic h1{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    font-size: 40px;
+}
+
+.academic div p{
+    font-family: "Poppins", sans-serif;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+.academic div img{
+    width: 350px;
+    height: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 20px;
+}
+
+
+
+#contact-halo{
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+}
+
+@keyframes contact-animation {
+    0%{
+        opacity: 0;
+    }
+}
+
+
+#contact-list{
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#contact-image{
+    width: 50%;
+    height: fit-content;
+}
+
+.contact-element{
+    color: black;
+    margin-left: auto;
+    transition: 0.5s;
+    text-align: start;
+    animation: contact-animation 1s;
+    display: inline-block;
+    width: 100%;
+}
+
+
+
+.contact-title{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+
+}
+.contact-element:hover{
+    padding-left: 5px;    
+}
+
+
+
+
+
+.background{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-position: center;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.3;
+    transition: 0.5s ease;
+    overflow-y: hidden;
+}
+
+#skills-list{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: start;
+    overflow-y: hidden;
+    background: transparent;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+
+
+#awards-page{
+    display: none;
+    opacity: 0;
+}
+
+.bottom-right{
+    flex-direction: row;
+    justify-content: end;
+    height: auto;
+}
+
+#awards-halo{
+    background: radial-gradient(
+        circle at 50% 50%,
+        #1a3a8c 0%,      
+        #1f469f 30%,     
+        #04203f 60%,     
+        #00121e 85%      
+      );
+    transform: translate(-20vw, 0vh);
+    width: 1500px;
+    height: 1500px;
+}
+
+#skills-halo-1{
+    transform: translate(-50%, -90%);
+    width: 1500px;
+    height: 1500px;
+    background: radial-gradient(
+        circle at 50% 50%, 
+        #0c345c 0%,
+        #2e307acc 30%,   
+        #021c62 60%,  
+        #001a33 85%    
+      );
+      filter: blur(200px);
+
+}
+#awards-container{
+    margin: auto;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+
+
+@keyframes award {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+
+
+#awards-container .award{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.award-card{
+    animation: award 2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+
+
+}
+
+
+.award{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.award h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: white;
+    font-size: 40px;
+}
+.award h3{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    margin-top: 15px;
+    color: white;
+}
+
+.award p{
+    padding: 15px;
+    margin-top: 30px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    text-align: start;
+    font-size: 20px;
+}
+
+#awards-halo-1{
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle at 50% 50%, 
+      #021930 0%,
+      #041c34 30%,  
+      #003366 60%,   
+      #001a33 85%    
+    );
+    border-radius: 60% 20% 65% 40% / 50% 55% 45% 50%;
+    filter: blur(100px);
+    height: 1000px;
+    width: 1000px;
+
+}
+
+
+#skills-halo{
+    transform: translate(-50%, 0%);
+    height: 1000px;
+    width: 1000px;
+
+}
+
+#projects-page{
+    display: none;
+    opacity: 0;
+}
+
+#projects-halo{
+    transform: translate(-90%, -90%);
+    background: radial-gradient(
+      circle at 50% 50%, 
+      #021930 0%,
+      #274e74 30%,  
+      #003366 60%,   
+      #001a33 85%    
+    );
+    border-radius: 60% 20% 65% 40% / 50% 55% 45% 50%;
+    filter: blur(100px);
+    height: 1000px;
+    width: 1000px;
+
+}
+
+#project-container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    height:95%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.project{
+    scroll-snap-align: start;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-card{
+    width: 80%;
+    padding: 5px;
+}
+
+#projects-halo-1{
+    transform: translate(-0%, -50%);
+    background: radial-gradient(
+      circle at 50% 50%, 
+      #021930 0%,
+      #274e74 30%,  
+      #003366 60%,   
+      #001a33 85%    
+    );
+    border-radius: 60% 20% 65% 40% / 50% 55% 45% 50%;
+    filter: blur(100px);
+    height: 1000px;
+    width: 1000px;
+
+}
+
+.project-head{
+    justify-content: start;
+    text-align: center;
+    padding: 10px;
+    z-index: 8;
+    margin-right: auto;
+    margin-left:auto;
+    animation: project-animation 1s ;
+    display: flex;
+    flex-direction: row;
+}
+
+
+@keyframes project-animation {
+    0%{opacity: 0;}
+}
+
+.project-head div h1{
+    color: white;
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    text-align: start;
+    margin-left: 20px;
+}
+
+
+.project-description{
+    margin-top: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    transition: 0.4s;
+    padding: 5px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    text-align: left;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    margin-bottom: 30px;
+    font-size: 17px;
+}
+
+
+
+.project-icon{
+    width: 100px;
+    padding: 5px;
+    border-radius: 50%;
+    background-color: rgb(243, 240, 237);
+}
+
+
+
+
+*::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px; 
+}
+*::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+
+.mobile-content{
+    display: block;
+    transition: 0.7s;
+    opacity: 1;
+}
+
+.story-card .text{
+    margin-top: 5px;
+    text-align: start;
+    padding: 5px;
+}
+
+#project-container .card{
+    border-style: none;
+}
+
+
+/*
+
+Mobile view
+
+*/
+
+
+/* Tablet view (below 900px) */
+@media screen and (max-width: 900px) {
+    #about-story .text-container {
+        flex-direction: column;
+        text-align: center;
+        overflow-y: auto;
+    }
+
+    #content-page{
+        overflow-y: auto;
+    }
+    #about-content{
+        overflow-y: auto;
+        
+    }
+    .story-card{
+        margin-top: 50px;
+    }
+
+    .skill-element{
+        width: 150px;
+    }
+    .skill-group{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 100px;
+
+    }
+    .skill-group-elements{
+        margin-top: 50px;
+    }
+    .skill-group-title{
+        margin: auto;
+        text-align: center;
+    }
+    .skill-group-title h1{
+        font-size: 35px;
+
+    }
+
+    .skill-element img{
+        animation: skills 0.5s;
+
+        height: 55px;
+    }
+    .project-card{
+        width: auto;
+    }
+
+    .contact-title{
+        font-size: 20px;
+    }
+
+    .project-head div h1{
+        font-size: 17px;
+    }
+    #project-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #about-story-title{
+        margin-right: 0;
+    }
+    #about-story-title h1{
+        text-align: center;
+    }
+    .mobile-content{
+        display: none;
+        opacity: 0;
+    }
+    #name {
+        font-size: 65px;
+    }
+
+    #home-title {
+        font-size: 25px;
+    }
+
+    .title h1, .beginning-text h1, .large-title {
+        font-size: 50px;
+    }
+
+
+
+    #about-picture{
+        display: none;
+    }
+
+    #education-card {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    #york-logo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .education-text {
+        width: 90%;
+        margin: 20px 0;
+    }
+
+    #skills-list {
+        width: 90%;
+    }
+
+    .skill-group-elements {
+
+        flex-wrap: wrap;
+        justify-content: center;
+
+    }
+
+    #project-container {
+        grid-template-columns: 1fr;
+    }
+
+    .award {
+        width: 80%;
+    }
+
+    .beginning-text h1{
+        margin-bottom: 200px;
+    }
+    #awards-container .award h2{
+        font-size: 30px;
+    }
+    .award p{
+        font-size: 18px;
+    }
+    #awards-container .award h3{
+        font-weight: 200;
+    }
+    #awards-container{
+        flex-direction: column;
+    }
+
+    .academic h1{
+       font-size: 25px; 
+    }
+
+    .academic div img{
+        width: 200px;
+    }
+
+    .academic div p{
+        font-size: 15px;
+        margin-left: 0;
+    }
+
+}
+
+/* Mobile view (below 600px) */
+@media screen and (max-width: 600px) {
+
+    .education-text h1{
+        font-size: 35px;
+    }
+    .education-text h2{
+        font-size: 18px;
+    }
+    .education-text h4{
+        font-size: 17px;
+    }      
+
+    .text-container{
+        flex-direction: column;
+        justify-content: start;
+    }
+    .beginning-text h1{
+        margin-bottom: 200px;
+    }
+    .sub-heading{
+        font-size: 23px;
+    }
+    #about-text h1{
+        font-size: 30px;
+    }
+    #about-story-title{
+        text-align: left;
+    }
+    .card{
+        padding: 8px;
+
+    }
+    
+    .text {
+        font-weight: 200;
+    }
+
+
+    .page-title h2{
+        font-size: 18px;
+    }
+    #menu li p{
+        font-size: 13px;
+    }
+    #name {
+        font-size: 50px;
+    }
+
+    #home-title {
+        font-size: 20px;
+    }
+
+    .title h1, .beginning-text h1, .large-title {
+        font-size: 50px;
+    }
+
+
+    #menu-icon {
+        width: 30px;
+        height: 24px;
+    }
+
+    #menu-list li h2 {
+        font-size: 18px;
+    }
+
+    #about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about-picture img {
+        width: 250px;
+    }
+
+
+    #education-card {
+        flex-direction: column;
+    }
+
+    #skills-list {
+        width: 95%;
+    }
+
+    #project-container {
+        grid-template-columns: 1fr;
+    }
+
+
+    .award {
+        width: 90%;
+    }
+
+
+}
+
+
+
+#end-text{
+    opacity: 0;
+    animation: end-text-animation 2s forwards;
+
+}
+
+@keyframes end-text-animation {
+    100%{opacity: 1;}
+}
