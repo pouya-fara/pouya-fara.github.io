@@ -203,21 +203,20 @@ section{
     opacity: 0.7;
     transition: 1s;
     opacity: 0;
-    animation: halo-animation 1s forwards;
+    animation: opacity-animation 1s forwards;
 }
 
-@keyframes halo-animation {
-    100%{
-        opacity: 1;
-    }
-}
 
 
 #content-page{
     display: none;
     opacity: 0;
 }
+.title{
+    opacity: 0;
+    animation: opacity-animation 1.5s forwards;
 
+}
 .title h1{
     color: white;
     font-family: "Poppins", sans-serif;
@@ -319,6 +318,11 @@ section{
     text-align: left;
     margin-left: auto;
     margin-right: auto;
+}
+
+.text-container h1{
+    opacity: 0;
+    animation: opacity-animation 1s forwards;
 }
 #about-page{
     opacity: 0;
@@ -451,6 +455,8 @@ section{
     text-align: center;
     flex-direction: column;
     margin-right: 50px;
+    opacity: 0;
+    animation: opacity-animation 1.5s forwards;
 }
 
 #about-text h1{
@@ -1083,7 +1089,14 @@ section{
     border-style: none;
 }
 
+.beginning-text{
+    animation: opacity-animation 1.7s forwards;
+    opacity: 0;
+}
 
+@keyframes opacity-animation {
+    100%{opacity: 1;}
+}
 /*
 
 Mobile view
@@ -1355,10 +1368,6 @@ Mobile view
 
 #end-text{
     opacity: 0;
-    animation: end-text-animation 2s forwards;
+    animation: opacity-animation 2s forwards;
 
-}
-
-@keyframes end-text-animation {
-    100%{opacity: 1;}
 }
