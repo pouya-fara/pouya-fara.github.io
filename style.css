@@ -250,7 +250,7 @@ section{
     margin-left: auto;
     margin-right: auto;
     transition: 0.7s ;
-    
+    height: 75%;
 }
 .page-title{
     transition: 0.7s;
@@ -1093,6 +1093,9 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
+    #end-text{
+        font-size: 80px;
+    }
     #about-story .text-container {
         flex-direction: column;
         text-align: center;
