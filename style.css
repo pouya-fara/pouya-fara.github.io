@@ -304,7 +304,7 @@ section{
 }
 .text{
     font-family: "Poppins", sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 17px;
     color: white;
     animation: about 1.5s;
@@ -352,9 +352,9 @@ section{
         #003366 60%,
         #001a33 85%    
       );
-    transform: translate(-15%, -17%);
-    width: 700px;
-    height: 700px;
+    transform: translate(0%, -25%);
+    width: 800px;
+    height: 800px;
 
 }
 .beginning-text{
@@ -424,6 +424,7 @@ section{
     padding: 20px;
     border-radius: 20px;
     animation: card-animation 2s ease;
+    margin-top: 15px;
 }
 
 
@@ -719,6 +720,7 @@ section{
     font-family: "Poppins", sans-serif;
     margin-top: 40px;
     margin-left: 20px;
+    font-weight: 300;
 }
 
 .academic div img{
