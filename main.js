@@ -192,7 +192,7 @@ document.onkeyup = function (e) {
 };
 
 // left/right hover cursor
-if (window.innerWidth > 900) {
+if (window.matchMedia('(pointer: fine)').matches) {
   document.addEventListener('mousemove', (event) => {
     let mouseX = event.clientX;
     let half = window.innerWidth / 2;
