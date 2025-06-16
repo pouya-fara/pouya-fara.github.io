@@ -684,6 +684,9 @@ section{
 
 .skill-group-title{
     font-family: "Poppins", sans-serif;
+    animation: opacity-animation 1s forwards;
+    opacity: 0;
+
 }
 .skill-group-title h1{
     font-weight: 300;
