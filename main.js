@@ -3,7 +3,6 @@ document.querySelector("html").style.height = window.innerHeight + "px";
 document.querySelector("body").style.height = window.innerHeight + "px";
 document.querySelector("#loading").style.height = window.innerHeight + "px";
 document.querySelector("#web-content").style.height = window.innerHeight + "px";
-document.querySelector("#menu-list").style.height = window.innerHeight + "px";
 
 // preloading
 window.onload = function(){
