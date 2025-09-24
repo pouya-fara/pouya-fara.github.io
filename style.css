@@ -1100,6 +1100,80 @@ section{
 @keyframes opacity-animation {
     100%{opacity: 1;}
 }
+
+
+
+
+.end-text{
+    opacity: 0;
+    animation: opacity-animation 2s forwards;
+
+}
+
+#final-content{
+    width: 100%;
+    text-align: center;
+    animation: scrollUp 40s linear forwards;
+}
+
+@keyframes scrollUp {
+  0% {
+    transform: translateY(100vh); 
+  }
+  100% {
+    transform: translateY(calc(-100% + 40vh)); 
+  }
+}
+#thank-you{
+    height: 30vh;
+    margin-top: 40vh;
+}
+#thank-you-text{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 80px;
+    color: white;
+}
+.cast{
+    display: flex; 
+    justify-content: center; 
+    text-align: center;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.cast-space{
+    height: 1px;
+    border-bottom-style: dotted;
+    border-color: white;
+    width: 200px;
+}
+
+
+.right-title{
+    text-align: right;
+    font-size: 25px;
+    font-weight: 200;
+}
+
+.left-title{
+    text-align: left;
+    font-size: 25px;
+    font-weight: 300;
+
+}
+.cast-title{
+    margin-right: auto;
+    margin-top: 100px;
+    font-size: 70px;
+    font-weight: 300;
+}
+
+
+
+
 /*
 
 Mobile view
@@ -1109,8 +1183,11 @@ Mobile view
 
 /* Tablet view (below 900px) */
 @media screen and (max-width: 900px) {
-    #end-text{
+    .end-text{
         font-size: 80px;
+    }
+    #thank-you-text{
+        font-size: 60px;
     }
     #about-story .text-container {
         flex-direction: column;
@@ -1272,7 +1349,14 @@ Mobile view
 
 /* Mobile view (below 600px) */
 @media screen and (max-width: 600px) {
-
+    .cast-title{
+        font-size: 50px;
+    }
+    .left-title{
+        font-size: 15px;}
+    .right-title{
+        font-size: 15px;
+    }
     .education-text h1{
         font-size: 35px;
     }
@@ -1282,7 +1366,9 @@ Mobile view
     .education-text h4{
         font-size: 17px;
     }      
-
+    #thank-you-text{
+        font-size: 45px;
+    }
     .text-container{
         flex-direction: column;
         justify-content: start;
@@ -1364,13 +1450,5 @@ Mobile view
         width: 90%;
     }
 
-
-}
-
-
-
-#end-text{
-    opacity: 0;
-    animation: opacity-animation 2s forwards;
 
 }
