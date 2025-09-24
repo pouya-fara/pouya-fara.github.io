@@ -1113,7 +1113,7 @@ section{
 #final-content{
     width: 100%;
     text-align: center;
-    animation: scrollUp 40s linear forwards;
+    animation: scrollUp 50s linear forwards;
 }
 
 @keyframes scrollUp {
@@ -1138,12 +1138,14 @@ section{
     display: flex; 
     justify-content: center; 
     text-align: center;
-    cursor: pointer;
     font-family: "Poppins", sans-serif;
     width: 100%;
     margin-top: 50px;
 }
+.cast a{
+    cursor: pointer;
 
+}
 .cast-space{
     height: 1px;
     border-bottom-style: dotted;
