@@ -1,3 +1,4 @@
+currentSide = '';
 // set full‐viewport heights
 document.querySelector("html").style.height = window.innerHeight + "px";
 document.querySelector("body").style.height = window.innerHeight + "px";
@@ -180,7 +181,7 @@ document.body.addEventListener("touchmove", e => {
 });
 document.body.addEventListener("touchend", () => {
   let threshold = 15, verticalTol = 50;
-  if (Math.abs(currentY - startY) < verticalTol) {
+  if (Math.abs(currentY - startY) < verticalTol && currentX !== 0) {
     if (currentX < startX - threshold) nextSlide();
     else if (currentX > startX + threshold) lastSlide();
   }
