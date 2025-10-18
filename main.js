@@ -218,7 +218,11 @@ function lastSlide() {
     let items = document.querySelectorAll('.content')[currentPage]
                          .querySelectorAll('.mobile-content');
     if (countedMobileElements <= 0) {
-      slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);
+      if (oneCycleCompleted){
+        slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);}
+      else{
+        slide_change(currentPage, currentPage > 0 ? currentPage - 1 : 0);
+      }
       showLastContent();
     } else {
       mobileContentChange(false);
