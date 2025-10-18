@@ -5,10 +5,13 @@ document.querySelector("body").style.height = window.innerHeight + "px";
 document.querySelector("#loading").style.height = window.innerHeight + "px";
 document.querySelector("#web-content").style.height = window.innerHeight + "px";
 document.querySelector("#menu-list").style.height = window.innerHeight + "px";
+let lastWidth = window.innerWidth;
 let contents = document.querySelectorAll(".content");
 contents.forEach(c =>{
   c.style.height = window.innerHeight + "px";
 })
+
+oneCycleCompleted = false;
 
 // preloading
 window.onload = function(){
@@ -18,8 +21,58 @@ window.onload = function(){
 
   let webContent = document.getElementById("web-content");
   webContent.style.display = "flex";
+  
+  // Start checking width
+  startWidthCheck();
 };
 
+function startWidthCheck() {
+  setInterval(() => {
+    const currentWidth = window.innerWidth;
+    if (currentWidth != lastWidth){
+      changeWidth();
+      lastWidth = currentWidth
+    }
+  }, 30);
+}
+function changeWidth(){
+  mobileWidthActivatation = window.innerWidth < 900;
+  countedMobileElements = 0;
+  document.querySelector("html").style.height = window.innerHeight + "px";
+  document.querySelector("body").style.height = window.innerHeight + "px";
+  document.querySelector("#loading").style.height = window.innerHeight + "px";
+  document.querySelector("#web-content").style.height = window.innerHeight + "px";
+  document.querySelector("#menu-list").style.height = window.innerHeight + "px";
+  let contents = document.querySelectorAll(".content");
+  contents.forEach(c =>{
+    c.style.height = window.innerHeight + "px";
+  })
+  if (!mobileWidthActivatation) {
+      let items = document.querySelectorAll('.content')[currentPage]
+                       .querySelectorAll('.mobile-content');
+      if (items.length) {
+        for (let i = 0; i < items.length; i++) {
+          items[i].style.display = "block";
+          items[i].style.opacity = 1;
+        }
+        countedMobileElements = 0;
+      }
+  }
+  else{
+          let items = document.querySelectorAll('.content')[currentPage]
+                       .querySelectorAll('.mobile-content');
+      if (items.length) {
+          items[0].style.display = "block";
+          items[0].style.opacity = 1;
+        for (let i = 1; i < items.length; i++) {
+          items[i].style.display = "None";
+          items[i].style.opacity = 0;
+        }
+        countedMobileElements = 0;
+      }
+
+  }
+}
 let currentPage = 0; 
 let pageLength = document.querySelectorAll('.content').length;
 
@@ -59,6 +112,9 @@ function slide_change(p1, p2) {
   currentPage = p2;
   if (p2 === 1) contentAnimation(true);
   else if (p1 === 1) contentAnimation(false);
+  if (p2 == pageLength - 1){
+    oneCycleCompleted = true;
+  }
 }
 
 // dynamic date counters
@@ -87,6 +143,9 @@ function updateDates(){
 }
 
 setInterval(updateDates, 1000);
+
+
+
 
 let mobileWidthActivatation = window.innerWidth < 900;
 let countedMobileElements = 0;
@@ -165,7 +224,12 @@ function lastSlide() {
       mobileContentChange(false);
     }
   } else {
-    slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);
+    if (oneCycleCompleted){
+      slide_change(currentPage, currentPage > 0 ? currentPage - 1 : pageLength - 1);
+    }
+    else{
+      slide_change(currentPage, currentPage > 0 ? currentPage - 1 : 0);
+    }
   }
 }
 
