@@ -285,10 +285,10 @@ const sectionsDic = {
   Home: 0,
   Contents: 1,
   About: 2,
-  Education: 5,
-  Awards: 7,
-  Skills: 9,
-  Projects: 13,
+  Education: 4,
+  Awards: 6,
+  Skills: 8,
+  Projects: 12,
 };
 
 // UPDATED click handler:

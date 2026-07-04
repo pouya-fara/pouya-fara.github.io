@@ -308,6 +308,7 @@ section{
     animation: about 1.5s;
     overflow-y: hidden;
     line-height: 20px;
+    line-height: 1.8;
 }
 .text-container{
     display: flex;
@@ -435,27 +436,6 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-#about-story .text-container{
-    display: flex;
-    flex-direction: row;
-}
-
-#about-story-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh;
-}
-
-#about-story-title{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    margin-right: 50px;
-    opacity: 0;
-    animation: opacity-animation 1.5s forwards;
 }
 
 #about-text h1{
@@ -700,36 +680,27 @@ section{
 .academic{
     display: flex;
     flex-direction: column;
-    height: 100%;
-}
-
-.academic-card{
-    width: 80%;
-    margin: auto;
-    padding: 5px;
+    height: 90%;
+    border-style: none;
 }
 
 
 .academic h1{
     font-family: "Poppins", sans-serif;
-    font-weight: 500;
+    font-weight: 200;
     text-align: center;
-    font-size: 40px;
+    font-size: 35px;
+    margin-top: 50px;
 }
 
-.academic div p{
-    font-family: "Poppins", sans-serif;
-    margin-top: 40px;
-    margin-left: 20px;
-    font-weight: 300;
-}
 
-.academic div img{
-    width: 350px;
+
+.academic img{
+    width: 100%;
     height: fit-content;
     margin-right: auto;
     margin-left: auto;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 
@@ -1338,14 +1309,9 @@ Mobile view
        font-size: 25px; 
     }
 
-    .academic div img{
-        width: 200px;
-    }
 
-    .academic div p{
-        font-size: 15px;
-        margin-left: 0;
-    }
+
+
 
 }
 
