@@ -551,11 +551,12 @@ section{
 }
 
 #york-logo{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 #education-card{
+    border-style: none;
     display: flex;
     flex-direction: row;
     width: 80%;
